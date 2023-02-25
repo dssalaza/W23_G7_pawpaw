@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">PetGrooming</string>
+    <string name="stringTxtViewWelcomeNote">Welcome Back!!</string>
+    <string name="stringBtnBookAppt">Book Appointment</string>
+    <string name="stringTxtViewBookAppt">Select the Date</string>
+    <string name="stringEditTimeBookAppt">Start Time</string>
+    <string name="stringTxtViewAvblSlotsBookAppt">Available Slots</string>
+    <string name="stringBtnBookApptToCheckOutActivity">Check Out</string>
+    <string name="stringBtnCheckHistory">History</string>
+    <string name="stringtxtViewPetInfo">My Pets</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_maps_booking">MapsActivityBooking</string>
 </resources>
