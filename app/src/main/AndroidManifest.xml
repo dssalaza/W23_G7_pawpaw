@@ -41,7 +41,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="PUT_API_KEY" />
+            android:value="MY_API_KEY" />
 
         <activity
             android:name=".MapsActivityBooking"
