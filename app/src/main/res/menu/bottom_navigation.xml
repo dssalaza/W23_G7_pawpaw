@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<!--    <item-->
-<!--        android:title="@string/txtBottomNav1"-->
-<!--        android:id="@+id/btnDownloadPdf"-->
-<!--        android:icon="@drawable/ic_launcher_pawtruck_background"/>-->
-<!--    <item-->
-<!--        android:title="@string/txtBottomNav2"-->
-<!--        android:id="@+id/btnCheckHistory"-->
-<!--        android:icon="@mipmap/ic_launcher_paw_round"/>-->
-<!--    <item-->
-<!--        android:title="@string/txtBottomNav3"-->
-<!--        android:id="@+id/btnBookAppt"-->
-<!--        android:icon="@mipmap/ic_launcher_paw"/>-->
+    <item
+        android:title="@string/txtBottomNav1"
+        android:id="@+id/btnDownloadPdf"
+        android:icon="@drawable/ic_launcher_pawtruck_background"/>
+    <item
+        android:title="@string/txtBottomNav2"
+        android:id="@+id/btnCheckHistory"
+        android:icon="@mipmap/ic_launcher_paw_round"/>
+    <item
+        android:title="@string/txtBottomNav3"
+        android:id="@+id/btnBookAppt"
+        android:icon="@mipmap/ic_launcher_paw"/>
 </menu>
