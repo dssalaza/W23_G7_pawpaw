@@ -11,4 +11,7 @@
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_maps_booking">MapsActivityBooking</string>
     <string name="stringBtnDownloadPdf">Download PDF</string>
+    <string name="txtBottomNav1">Pets</string>
+    <string name="txtBottomNav2">Home</string>
+    <string name="txtBottomNav3">Book</string>
 </resources>
