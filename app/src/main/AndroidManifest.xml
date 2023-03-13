@@ -15,17 +15,26 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher_paw"
+        android:icon="@mipmap/ic_launcher_pawicon"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher_paw_round"
+        android:roundIcon="@mipmap/ic_launcher_pawicon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetGrooming"
         tools:targetApi="31">
         <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PetGroomingSplash"/>
+        <activity
+            android:name=".SignupActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PetGroomingSplash"/>
+
+        <activity
             android:name=".Splash_Activity"
-            android:theme="@style/Theme.PetGroomingSplash"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.PetGroomingSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -70,13 +79,14 @@
         </activity>
         <activity
             android:name=".HomeScreenMainActivity"
-
             android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
     </application>
 

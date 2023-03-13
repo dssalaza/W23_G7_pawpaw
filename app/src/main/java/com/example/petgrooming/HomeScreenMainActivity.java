@@ -18,9 +18,8 @@ public class HomeScreenMainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayUseLogoEnabled(true);
-        actionBar.setLogo(R.mipmap.ic_launcher_paw_round);
+        actionBar.setLogo(R.mipmap.ic_launcher_pawicon_round);
         actionBar.setTitle("PawPaw");
-
 
         // Book Appointment Start - Sri
         btnBookAppt = findViewById(R.id.btnBookAppt);

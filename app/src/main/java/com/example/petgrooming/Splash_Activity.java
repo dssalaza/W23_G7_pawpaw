@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import java.util.Timer;
 import java.util.TimerTask;
 
+//Seulah 03/13/2023 - Splash Design Modify
 public class Splash_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,14 +22,13 @@ public class Splash_Activity extends AppCompatActivity {
             @Override
             public void run() {
                 startActivity(new Intent(Splash_Activity.this,
-                        HomeScreenMainActivity.class));
+                        LoginActivity.class));
                         finish();
             }
         };
         //2. Create Timer object
         Timer timer = new Timer();
         timer.schedule(timerTask, 2000);
-
 
     }
 }
