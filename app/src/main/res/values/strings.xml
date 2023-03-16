@@ -14,4 +14,5 @@
     <string name="txtBottomNav1">Pets</string>
     <string name="txtBottomNav2">Home</string>
     <string name="txtBottomNav3">Book</string>
+    <string name="btnLogout">Logout</string>
 </resources>
