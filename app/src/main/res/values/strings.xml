@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">PetGrooming</string>
     <string name="stringTxtViewWelcomeNote">Welcome Back!!</string>
     <string name="stringBtnBookAppt">Book Appointment</string>
@@ -15,4 +15,5 @@
     <string name="txtBottomNav2">Home</string>
     <string name="txtBottomNav3">Book</string>
     <string name="btnLogout">Logout</string>
+
 </resources>

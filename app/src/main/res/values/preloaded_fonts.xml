@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/bellota_text</item>
+        <item>@font/bellota_text_bold</item>
         <item>@font/bungee</item>
         <item>@font/coiny</item>
         <item>@font/fredoka_one</item>
         <item>@font/nerko_one</item>
+        <item>@font/poppins_semibold</item>
     </array>
 </resources>

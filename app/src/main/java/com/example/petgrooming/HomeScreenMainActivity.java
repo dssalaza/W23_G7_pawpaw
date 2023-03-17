@@ -3,6 +3,7 @@ package com.example.petgrooming;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,9 +22,8 @@ import com.google.android.gms.tasks.Task;
 
 public class HomeScreenMainActivity extends AppCompatActivity {
 
-    Button btnBookAppt;
+    CardView cardViewBookAppt;
 
-    //03/15/2023 logout - Seu
     TextView userName;
     Button logout;
     GoogleSignInClient gClient;
@@ -43,33 +43,30 @@ public class HomeScreenMainActivity extends AppCompatActivity {
         actionBar.setLogo(R.mipmap.ic_launcher_pawicon_round);
         actionBar.setTitle("PawPaw");
 
-        // Book Appointment Start - Sri
-        btnBookAppt = findViewById(R.id.btnBookAppt);
-        btnBookAppt.setOnClickListener((View v) -> {
+        cardViewBookAppt = findViewById(R.id.cardViewBook);
+        cardViewBookAppt.setOnClickListener((View v) -> {
             startActivity(new Intent(this, BookAppointmentActivity.class));
         });
-        // Book Appointment End - Sri
 
-        //03/15/2023 logout - Seu
-        logout = findViewById(R.id.btnLogout);
-        userName = findViewById(R.id.userName);
-
-        gOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        gClient = GoogleSignIn.getClient(this, gOptions);
-
-        GoogleSignInAccount gAccount = GoogleSignIn.getLastSignedInAccount(this);
-        if (gAccount != null) {
-            String gName = gAccount.getDisplayName();
-            userName.setText(gName);
-        }
-        logout.setOnClickListener((View view) -> {
-                gClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        finish();
-                        startActivity(new Intent(HomeScreenMainActivity.this, LoginActivity.class));
-                    }
-                });
-        });
+//        logout = findViewById(R.id.btnLogout);
+//        userName = findViewById(R.id.txtViewUserName);
+//
+//        gOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+//        gClient = GoogleSignIn.getClient(this, gOptions);
+//
+//        GoogleSignInAccount gAccount = GoogleSignIn.getLastSignedInAccount(this);
+//        if (gAccount != null) {
+//            String gName = gAccount.getDisplayName();
+//            userName.setText(gName);
+//        }
+//        logout.setOnClickListener((View view) -> {
+//                gClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        finish();
+//                        startActivity(new Intent(HomeScreenMainActivity.this, LoginActivity.class));
+//                    }
+//                });
+//        });
     }
 }
