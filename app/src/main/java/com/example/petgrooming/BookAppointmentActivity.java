@@ -11,7 +11,7 @@ import android.widget.CalendarView;
 import android.widget.TextView;
 
 
-public class BookAppointmentActivity extends AppCompatActivity {
+public class BookAppointmentActivity extends NavigationBar {
     CalendarView clndrViewBookAppt;
     TextView txtTitleBookAppt;
     Button btnBookApptToCheckOut, btnTestingMap;
@@ -19,7 +19,8 @@ public class BookAppointmentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_appointment);
+        // Do not use setContentView(R.id.activity_book_appointment)
+        // the super class (NavigationBar) will handle it if you return it in the getContentViewId() method;
         clndrViewBookAppt = findViewById(R.id.calendarViewBookAppt);
         txtTitleBookAppt = findViewById(R.id.txtViewTitleBookAppt);
         btnBookApptToCheckOut = findViewById(R.id.btnBookApptToCheckOutActivity);
@@ -40,11 +41,15 @@ public class BookAppointmentActivity extends AppCompatActivity {
         });
 
 
+    }
 
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_book_appointment;
+    }
 
-
-
-
-
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.bottonnav;
     }
 }

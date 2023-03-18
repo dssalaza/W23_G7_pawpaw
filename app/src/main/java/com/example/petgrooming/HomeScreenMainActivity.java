@@ -1,14 +1,11 @@
 package com.example.petgrooming;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,7 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
-public class HomeScreenMainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class HomeScreenMainActivity extends NavigationBar  {
 
     CardView cardViewBookAppt;
 
@@ -38,8 +35,8 @@ public class HomeScreenMainActivity extends AppCompatActivity implements BottomN
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        // Do not use setContentView(R.id.activity_main)
+        // the super class (NavigationBar) will handle it if you return it in the getContentViewId() method;
         Log.d(TAG, "Starting pawpaw home page ...");
 
         bottomNavigationView = findViewById(R.id.bottonnav);
@@ -79,23 +76,14 @@ public class HomeScreenMainActivity extends AppCompatActivity implements BottomN
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.btnBookAppt:
-                startActivity(new Intent(this, BookAppointmentActivity.class));
-                break;
-            case R.id.btnCheckHistory:
-                startActivity(new Intent(this, HomeScreenMainActivity.class));
-                break;
-            case R.id.btnDownloadPdf:
-                startActivity(new Intent(this, MapsActivityBooking.class));
-                break;
-        }
-        return true;
+    int getContentViewId() {
+        return R.layout.activity_main;
     }
 
     @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-        super.onPointerCaptureChanged(hasCapture);
+    int getNavigationMenuItemId() {
+        return R.id.bottonnav;
     }
+
+
 }
