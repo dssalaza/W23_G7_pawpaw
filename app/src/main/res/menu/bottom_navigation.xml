@@ -3,13 +3,13 @@
     <item
         android:title="@string/txtBottomNav1"
         android:id="@+id/btnDownloadPdf"
-        android:icon="@drawable/ic_launcher_pawtruck_background"/>
+        android:icon="@drawable/pet"/>
     <item
         android:title="@string/txtBottomNav2"
         android:id="@+id/btnCheckHistory"
-        android:icon="@mipmap/ic_launcher_paw_round"/>
+        android:icon="@drawable/paw"/>
     <item
         android:title="@string/txtBottomNav3"
         android:id="@+id/btnBookAppt"
-        android:icon="@mipmap/ic_launcher_paw"/>
+        android:icon="@drawable/heart"/>
 </menu>
