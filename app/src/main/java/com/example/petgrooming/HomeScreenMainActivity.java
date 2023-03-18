@@ -8,6 +8,7 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,9 +19,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
-public class HomeScreenMainActivity extends AppCompatActivity {
+public class HomeScreenMainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     CardView cardViewBookAppt;
 
@@ -29,13 +31,19 @@ public class HomeScreenMainActivity extends AppCompatActivity {
     GoogleSignInClient gClient;
     GoogleSignInOptions gOptions;
 
+    BottomNavigationView bottomNavigationView;
+
     final String TAG = "PawPaw";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Log.d(TAG, "Starting pawpaw home page ...");
+
+        bottomNavigationView = findViewById(R.id.bottonnav);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
@@ -68,5 +76,26 @@ public class HomeScreenMainActivity extends AppCompatActivity {
 //                    }
 //                });
 //        });
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.btnBookAppt:
+                startActivity(new Intent(this, BookAppointmentActivity.class));
+                break;
+            case R.id.btnCheckHistory:
+                startActivity(new Intent(this, HomeScreenMainActivity.class));
+                break;
+            case R.id.btnDownloadPdf:
+                startActivity(new Intent(this, MapsActivityBooking.class));
+                break;
+        }
+        return true;
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+        super.onPointerCaptureChanged(hasCapture);
     }
 }
