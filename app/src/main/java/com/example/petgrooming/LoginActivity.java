@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        //03/15/2023 Google Login - Seu
+
         //Inside onCreate
         gOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gClient = GoogleSignIn.getClient(this, gOptions);
