@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bkgdesign"
+    android:fillViewport="true"
     tools:context=".HomeScreenMainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -262,23 +263,25 @@
             tools:context=".HomeScreenMainActivity">
 
             <RelativeLayout
-                android:id="@+id/relativelayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/relativelayout"
                 android:layout_marginBottom="65dp"
-                android:padding="5dp"></RelativeLayout>
+                android:padding="5dp">
+
+            </RelativeLayout>
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottonnav"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:menu="@menu/bottom_navigation"
                 android:layout_alignParentBottom="true"
-                app:menu="@menu/bottom_navigation"></com.google.android.material.bottomnavigation.BottomNavigationView>
-
+                android:id="@+id/bottonnav"
+                >
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
         </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </ScrollView>
 
