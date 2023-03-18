@@ -231,7 +231,7 @@ public class CheckOutActivity extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> header = new HashMap<>();
-                header.put("Authorization","Bearer "+STRIPE_SECRET_KEY);
+                header.put("Authorization","Bearer "+ STRIPE_SECRET_KEY);
                 return header;
             }
             @Nullable
@@ -275,7 +275,7 @@ public class CheckOutActivity extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> header = new HashMap<>();
-                header.put("Authorization","Bearer "+STRIPE_SECRET_KEY);
+                header.put("Authorization","Bearer "+ STRIPE_SECRET_KEY);
                 header.put("Stripe-Version","2022-11-15");
                 return header;
             }
@@ -317,7 +317,7 @@ public class CheckOutActivity extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> header = new HashMap<>();
-                header.put("Authorization","Bearer "+STRIPE_SECRET_KEY);
+                header.put("Authorization","Bearer "+ STRIPE_SECRET_KEY);
                 return header;
             }
             @Nullable
