@@ -43,7 +43,7 @@ public class HomeScreenMainActivity extends AppCompatActivity implements BottomN
         Log.d(TAG, "Starting pawpaw home page ...");
 
         bottomNavigationView = findViewById(R.id.bottonnav);
-        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        bottomNavigationView.setOnItemSelectedListener(this);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
