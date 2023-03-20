@@ -47,7 +47,7 @@ public abstract class NavigationBar extends AppCompatActivity implements  Naviga
                 startActivity(new Intent(this, HomeScreenMainActivity.class));
                 break;
             case R.id.btnDownloadPdf:
-                startActivity(new Intent(this, MapsActivityBooking.class));
+                startActivity(new Intent(this, PetProfileActivity.class));
                 break;
         }
         return true;    }
