@@ -25,6 +25,8 @@ public class SignupActivity extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
 
         binding.signupButton.setOnClickListener((View view) -> {
+//            String fname = binding.signupFName.getText().toString();
+//            String lname = binding.signupLName.getText().toString();
             String email = binding.signupEmail.getText().toString();
             String password = binding.signupPassword.getText().toString();
             String confirmPassword = binding.signupConfirm.getText().toString();

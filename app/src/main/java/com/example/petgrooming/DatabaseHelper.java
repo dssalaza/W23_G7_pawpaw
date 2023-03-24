@@ -32,6 +32,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("email", email);
+//        contentValues.put("fname", fname);
+//        contentValues.put("lname", lname);
         contentValues.put("password", password);
         long result = MyDatabase.insert("allusers", null, contentValues);
 

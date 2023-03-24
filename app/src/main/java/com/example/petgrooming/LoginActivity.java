@@ -58,6 +58,11 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, HomeScreenMainActivity.class);
                     startActivity(intent);
+//                    Intent myResult = new Intent(this, HomeScreenMainActivity.class);
+//                    Bundle bundle= new Bundle();
+//                    bundle.putString("EMAIL", email);
+//                    myResult.putExtras(bundle);
+//                    startActivity(myResult);
                 } else {
                     Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                 }
@@ -68,7 +73,6 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(this, SignupActivity.class);
             startActivity(intent);
         });
-
 
         //Inside onCreate
         gOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
