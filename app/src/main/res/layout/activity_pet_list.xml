@@ -27,6 +27,6 @@
         app:backgroundTint="@color/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/add_pet_info_1" />
+        app:srcCompat="@drawable/ic_add_pet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

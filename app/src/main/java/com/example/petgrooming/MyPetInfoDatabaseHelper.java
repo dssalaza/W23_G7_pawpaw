@@ -81,6 +81,26 @@ public class MyPetInfoDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    void updateData(String row_id, String petName, String petType, String petBreed,
+                    String petAge, String petSize, String petCondition){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_petname, petName);
+        cv.put(COLUMN_pettype, petType);
+        cv.put(COLUMN_petbreed, petBreed);
+        cv.put(COLUMN_petage, petAge);
+        cv.put(COLUMN_petsize, petSize);
+        cv.put(COLUMN_petcondition, petCondition);
+
+        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{"1"});
+        if(result == -1){
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
 
 
 }

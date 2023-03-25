@@ -44,7 +44,7 @@ public class PetListActivity extends AppCompatActivity {
 
         storeDataInArrays();
         CustomAdapterForRecyclerView customAdapterForRecyclerView= new CustomAdapterForRecyclerView(PetListActivity.this,
-                pet_name, pet_type, pet_breed, pet_age);
+                pet_name, pet_type, pet_breed, pet_size, pet_age, pet_condition, pet_id);
         recyclerView.setAdapter(customAdapterForRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(PetListActivity.this));
 
