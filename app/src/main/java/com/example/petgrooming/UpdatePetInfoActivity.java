@@ -11,7 +11,7 @@ import android.widget.EditText;
 public class UpdatePetInfoActivity extends AppCompatActivity {
 
     EditText pet_name_input, pet_animal_type_input, pet_breed_input, pet_size_input, pet_age_input, pet_condition_input;
-    Button update_button;
+    Button update_button,delete_button;
     String id, breed, name, type, size, age, condition;
 
     @Override
@@ -26,6 +26,7 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
         pet_age_input = findViewById(R.id.pet_age_update);
         pet_condition_input = findViewById(R.id.pet_condition_update);
         update_button = findViewById(R.id.add_button_update);
+        delete_button = findViewById(R.id.delete_button_update);
         getAndSetIntentData();
         update_button.setOnClickListener((View v) -> {
             MyPetInfoDatabaseHelper myDB = new MyPetInfoDatabaseHelper(UpdatePetInfoActivity.this);
@@ -39,6 +40,11 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
             Intent intent = new Intent(UpdatePetInfoActivity.this,
                     HomeScreenMainActivity.class);
             startActivity(intent);
+
+        });
+        delete_button.setOnClickListener((View v) -> {
+            MyPetInfoDatabaseHelper myDB = new MyPetInfoDatabaseHelper(UpdatePetInfoActivity.this);
+            myDB.deleteOneRow(id);
 
         });
 
