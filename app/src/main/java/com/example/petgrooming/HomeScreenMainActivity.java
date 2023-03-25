@@ -38,6 +38,8 @@ public class HomeScreenMainActivity extends NavigationBar implements NavigationV
     GoogleSignInOptions gOptions;
 
     CardView cardViewBookAppt;
+    CardView cardViewAddDog;
+    CardView cardViewAddCat;
 
     BottomNavigationView bottomNavigationView;
 
@@ -91,7 +93,19 @@ public class HomeScreenMainActivity extends NavigationBar implements NavigationV
             startActivity(new Intent(this, BookAppointmentActivity.class));
         });
 
+        cardViewAddDog = findViewById(R.id.cardViewDog);
+        cardViewAddDog.setOnClickListener((View v) -> {
+            Intent intent = new Intent(this, AddPetInfoToDBFromHomePageActivity.class);
+            intent.putExtra("petAnimalTypeStringExtra", "Dog");
+            startActivity(intent);
+        });
 
+        cardViewAddCat = findViewById(R.id.cardViewCat);
+        cardViewAddCat.setOnClickListener((View v) -> {
+            Intent intent = new Intent(this, AddPetInfoToDBFromHomePageActivity.class);
+            intent.putExtra("petAnimalTypeStringExtra", "Cat");
+            startActivity(intent);
+        });
     }
 
     @Override
