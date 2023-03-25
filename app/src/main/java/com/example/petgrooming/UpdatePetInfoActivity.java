@@ -29,6 +29,12 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
         getAndSetIntentData();
         update_button.setOnClickListener((View v) -> {
             MyPetInfoDatabaseHelper myDB = new MyPetInfoDatabaseHelper(UpdatePetInfoActivity.this);
+            name = pet_name_input.getText().toString();
+            type = pet_animal_type_input.getText().toString();
+            breed = pet_breed_input.getText().toString();
+            size = pet_size_input.getText().toString();
+            age = pet_age_input.getText().toString();
+            condition = pet_condition_input.getText().toString();
             myDB.updateData(id, name, type, breed, age, size, condition);
             Intent intent = new Intent(UpdatePetInfoActivity.this,
                     HomeScreenMainActivity.class);

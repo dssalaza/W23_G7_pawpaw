@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -92,7 +93,7 @@ public class MyPetInfoDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_petsize, petSize);
         cv.put(COLUMN_petcondition, petCondition);
 
-        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{"1"});
+        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
         }else {
