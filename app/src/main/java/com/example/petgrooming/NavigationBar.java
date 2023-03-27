@@ -40,14 +40,14 @@ public abstract class NavigationBar extends AppCompatActivity implements  Naviga
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.btnBookAppt:
-                startActivity(new Intent(this, BookAppointmentActivity.class));
+            case R.id.btnPets:
+                startActivity(new Intent(this, PetListActivity.class));
                 break;
-            case R.id.btnCheckHistory:
+            case R.id.btnHome:
                 startActivity(new Intent(this, HomeScreenMainActivity.class));
                 break;
-            case R.id.btnDownloadPdf:
-                startActivity(new Intent(this, PetProfileActivity.class));
+            case R.id.btnBook:
+                startActivity(new Intent(this, BookAppointmentActivity.class));
                 break;
         }
         return true;    }

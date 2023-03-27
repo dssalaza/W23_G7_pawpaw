@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:title="@string/txtBottomNav1"
-        android:id="@+id/btnDownloadPdf"
+        android:id="@+id/btnPets"
         android:icon="@drawable/pet"/>
     <item
         android:title="@string/txtBottomNav2"
-        android:id="@+id/btnCheckHistory"
+        android:id="@+id/btnHome"
         android:icon="@drawable/paw"/>
     <item
         android:title="@string/txtBottomNav3"
-        android:id="@+id/btnBookAppt"
+        android:id="@+id/btnBook"
         android:icon="@drawable/heart"/>
 </menu>
