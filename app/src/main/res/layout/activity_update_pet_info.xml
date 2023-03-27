@@ -10,13 +10,13 @@
         android:id="@+id/pet_name_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="22dp"
         android:ems="10"
         android:hint="Pet Name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imgViewUpdate" />
 
     <EditText
         android:id="@+id/pet_animal_type_update"
@@ -99,5 +99,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_button_update" />
+
+    <ImageView
+        android:id="@+id/imgViewUpdate"
+        android:layout_width="102dp"
+        android:layout_height="105dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/androidstudio"
+        tools:srcCompat="@drawable/androidstudio" />
+
+    <EditText
+        android:id="@+id/editTextFireBaseIdinUpdate"
+        android:layout_width="94dp"
+        android:layout_height="18dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/imgViewUpdate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

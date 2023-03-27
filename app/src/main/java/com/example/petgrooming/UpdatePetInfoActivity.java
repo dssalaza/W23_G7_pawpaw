@@ -10,9 +10,9 @@ import android.widget.EditText;
 
 public class UpdatePetInfoActivity extends AppCompatActivity {
 
-    EditText pet_name_input, pet_animal_type_input, pet_breed_input, pet_size_input, pet_age_input, pet_condition_input;
+    EditText pet_name_input, pet_animal_type_input, pet_breed_input, pet_size_input, pet_age_input, pet_condition_input, pet_firebase_photoid;
     Button update_button,delete_button;
-    String id, breed, name, type, size, age, condition;
+    String id, breed, name, type, size, age, condition, firebasePhotoId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
         pet_condition_input = findViewById(R.id.pet_condition_update);
         update_button = findViewById(R.id.add_button_update);
         delete_button = findViewById(R.id.delete_button_update);
+        pet_firebase_photoid = findViewById(R.id.editTextFireBaseIdinUpdate);
         getAndSetIntentData();
         update_button.setOnClickListener((View v) -> {
             MyPetInfoDatabaseHelper myDB = new MyPetInfoDatabaseHelper(UpdatePetInfoActivity.this);
@@ -36,7 +37,8 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
             size = pet_size_input.getText().toString();
             age = pet_age_input.getText().toString();
             condition = pet_condition_input.getText().toString();
-            myDB.updateData(id, name, type, breed, age, size, condition);
+            firebasePhotoId = pet_condition_input.getText().toString();
+            myDB.updateData(id, name, type, breed, age, size, condition,firebasePhotoId);
             Intent intent = new Intent(UpdatePetInfoActivity.this,
                     HomeScreenMainActivity.class);
             startActivity(intent);

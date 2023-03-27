@@ -17,6 +17,7 @@ public class MyPetInfoDatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     private static final String TABLE_NAME = "pet_info";
+    private static final String COLUMN_firebasephotoid = "firebase_photo_id";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_petname = "pet_name";
     private static final String COLUMN_petbreed = "pet_breed";
@@ -42,9 +43,9 @@ public class MyPetInfoDatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_petbreed + " TEXT, " +
                 COLUMN_petage + " INTEGER, " +
                 COLUMN_petsize + " REAL, " +
-                COLUMN_petcondition + " TEXT);";
+                COLUMN_petcondition + " TEXT, " +
+                COLUMN_firebasephotoid + " TEXT)";
         db.execSQL(query);
-
     }
 
     @Override
@@ -82,8 +83,9 @@ public class MyPetInfoDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+
     void updateData(String row_id, String petName, String petType, String petBreed,
-                    String petAge, String petSize, String petCondition){
+                    String petAge, String petSize, String petCondition, String firebasePhotoId){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_petname, petName);
@@ -92,6 +94,7 @@ public class MyPetInfoDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_petage, petAge);
         cv.put(COLUMN_petsize, petSize);
         cv.put(COLUMN_petcondition, petCondition);
+        cv.put(COLUMN_firebasephotoid, firebasePhotoId);
 
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if(result == -1){
@@ -101,6 +104,8 @@ public class MyPetInfoDatabaseHelper extends SQLiteOpenHelper {
         }
 
     }
+
+
 
 
     void deleteOneRow(String row_id){
