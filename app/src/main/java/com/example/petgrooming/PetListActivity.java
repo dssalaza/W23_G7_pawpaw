@@ -13,7 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class PetListActivity extends AppCompatActivity {
+public class PetListActivity extends NavigationBar {
     RecyclerView recyclerView;
     FloatingActionButton add_button;
 
@@ -24,7 +24,6 @@ public class PetListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pet_list);
 
         myDB = new MyPetInfoDatabaseHelper(PetListActivity.this);
         pet_id = new ArrayList<>();
@@ -48,12 +47,18 @@ public class PetListActivity extends AppCompatActivity {
         recyclerView.setAdapter(customAdapterForRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(PetListActivity.this));
 
-
-
-
-
-
     }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_pet_list;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.bottonnav;
+    }
+
     void storeDataInArrays(){
         Cursor cursor = myDB.readAllData();
         if(cursor.getCount() == 0){

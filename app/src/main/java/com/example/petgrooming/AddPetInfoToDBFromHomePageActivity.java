@@ -8,14 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class AddPetInfoToDBFromHomePageActivity extends AppCompatActivity {
+public class AddPetInfoToDBFromHomePageActivity extends NavigationBar {
     EditText petName, petBreed, petAge, petSize, petCondition;
     Button add_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_pet_info_to_dbfrom_home_page);
         Intent intent1 = getIntent();
         String animalType = intent1.getStringExtra("petAnimalTypeStringExtra");
 
@@ -39,5 +38,15 @@ public class AddPetInfoToDBFromHomePageActivity extends AppCompatActivity {
             startActivity(intent);
 
         });
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_add_pet_info_to_dbfrom_home_page;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.bottonnav;
     }
 }

@@ -76,4 +76,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pet_condition_hm" />
 
+    <include layout="@layout/navigation_bar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
