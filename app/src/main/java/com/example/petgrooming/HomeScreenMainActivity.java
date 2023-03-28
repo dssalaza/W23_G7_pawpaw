@@ -107,9 +107,6 @@ public class HomeScreenMainActivity extends NavigationBar implements NavigationV
             userName.setText(gName);
         }
 
-        bottomNavigationView = findViewById(R.id.bottonnav);
-        bottomNavigationView.setOnItemSelectedListener(this);
-
         cardViewBookAppt = findViewById(R.id.cardViewBook);
         cardViewBookAppt.setOnClickListener((View v) -> {
             startActivity(new Intent(this, BookAppointmentActivity.class));
