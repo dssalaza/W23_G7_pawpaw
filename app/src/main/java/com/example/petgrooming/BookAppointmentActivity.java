@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class BookAppointmentActivity extends NavigationBar {
     CalendarView clndrViewBookAppt;
     TextView txtTitleBookAppt;
-    Button btnBookApptToCheckOut, btnTestingMap;
+    Button btnBookApptToCheckOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class BookAppointmentActivity extends NavigationBar {
         clndrViewBookAppt = findViewById(R.id.calendarViewBookAppt);
         txtTitleBookAppt = findViewById(R.id.txtViewTitleBookAppt);
         btnBookApptToCheckOut = findViewById(R.id.btnBookApptToCheckOutActivity);
-        btnTestingMap = findViewById(R.id.btnTestingMap);
+        //btnTestingMap = findViewById(R.id.btnTestingMap);
         clndrViewBookAppt.setMinDate(System.currentTimeMillis());
 
         clndrViewBookAppt.setOnDateChangeListener((@NonNull CalendarView view, int year, int month, int dayOfMonth) -> {
@@ -35,10 +35,6 @@ public class BookAppointmentActivity extends NavigationBar {
             startActivity(new Intent(this, CheckOutActivity.class));
         });
 
-        btnTestingMap.setOnClickListener((View v) -> {
-                startActivity(new Intent(this, MapsActivityBooking.class));
-
-        });
 
 
     }

@@ -24,48 +24,38 @@
         android:layout_marginLeft="19dp"
         android:layout_marginTop="60dp" />
 
-    <RadioGroup
-        android:id="@+id/rdioGrpBookAppt"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="430dp">
-
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RadioButton" />
-
-        <RadioButton
-            android:id="@+id/radioButton5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RadioButton" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/txtViewAvblSlotsBookAppt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="400dp"
-        android:text="@string/stringTxtViewAvblSlotsBookAppt" />
-
     <Button
         android:id="@+id/btnBookApptToCheckOutActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="150dp"
         android:layout_marginTop="570dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/brown"
         android:text="@string/stringBtnBookApptToCheckOutActivity" />
 
-    <Button
-        android:id="@+id/btnTestingMap"
+    <include layout="@layout/navigation_bar" />
+
+    <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Map Testing" />
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="450dp">
 
-    <include layout="@layout/navigation_bar"/> <!--this can be deleted if we don't need the bottom nav bar in this activity-->
+        <RadioButton
+            android:id="@+id/premiumPackage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Premium Package (90$)" />
+
+        <RadioButton
+            android:id="@+id/basicPackage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Basic Package (65$)" />
+    </RadioGroup>
+
+    <!--this can be deleted if we don't need the bottom nav bar in this activity-->
 
 
 </RelativeLayout>

@@ -16,6 +16,7 @@
         app:layout_constraintHorizontal_bias="0.908"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/brown"
         app:layout_constraintVertical_bias="0.953" />
 
     <Button
@@ -27,5 +28,6 @@
         app:layout_constraintEnd_toStartOf="@+id/btnDownloadPdf"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/brown"
         app:layout_constraintVertical_bias="0.953" />
 </androidx.constraintlayout.widget.ConstraintLayout>

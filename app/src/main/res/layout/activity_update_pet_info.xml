@@ -64,6 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pet_size_update" />
+
     <EditText
         android:id="@+id/pet_condition_update"
         android:layout_width="match_parent"
@@ -78,27 +79,27 @@
 
     <Button
         android:id="@+id/add_button_update"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="295dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="18dp"
         android:text="Update Information"
         android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pet_condition_update" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBookAppt1" />
 
     <Button
         android:id="@+id/delete_button_update"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="246dp"
+        android:layout_height="39dp"
         android:text="Delete"
         android:textAllCaps="false"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_button_update" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imgViewUpdate"
@@ -121,5 +122,15 @@
         app:layout_constraintEnd_toStartOf="@+id/imgViewUpdate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnBookAppt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:text="Book Appointment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pet_condition_update" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

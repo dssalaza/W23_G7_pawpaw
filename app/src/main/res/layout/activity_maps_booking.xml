@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,3 +11,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MapsActivityBooking" />
+    <Button
+        android:id="@+id/checkOutFromMaps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#359c5e"
+        android:layout_alignParentBottom="true"
+        android:padding="8dp"
+        android:backgroundTint="@color/brown"
+        android:layout_marginLeft="135dp"
+        android:layout_marginBottom="5dp"
+
+        android:text="Confirm Location"
+        android:textColor="#ffffff" />
+
+</RelativeLayout>

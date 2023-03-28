@@ -27,7 +27,7 @@ import java.util.UUID;
 public class UpdatePetInfoActivity extends AppCompatActivity {
 
     EditText pet_name_input, pet_animal_type_input, pet_breed_input, pet_size_input, pet_age_input, pet_condition_input, pet_firebase_photoid;
-    Button update_button,delete_button;
+    Button update_button,delete_button, book_button;
     String id, breed, name, type, size, age, condition, firebasePhotoId,firebasePhotoIdFetchFromDB;
     ImageView imgViewUpdate;
 
@@ -49,6 +49,7 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
         pet_condition_input = findViewById(R.id.pet_condition_update);
         update_button = findViewById(R.id.add_button_update);
         delete_button = findViewById(R.id.delete_button_update);
+        book_button = findViewById(R.id.btnBookAppt1);
         pet_firebase_photoid = findViewById(R.id.editTextFireBaseIdinUpdate);
 
         //Firebase instrumentation
@@ -80,6 +81,11 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
         delete_button.setOnClickListener((View v) -> {
             MyPetInfoDatabaseHelper myDB = new MyPetInfoDatabaseHelper(UpdatePetInfoActivity.this);
             myDB.deleteOneRow(id);
+
+        });
+        book_button.setOnClickListener((View v) -> {
+            startActivity(new Intent(this, MapsActivityBooking.class));
+
 
         });
 
