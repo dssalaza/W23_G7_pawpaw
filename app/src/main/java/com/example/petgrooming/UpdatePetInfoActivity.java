@@ -28,7 +28,7 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
 
     EditText pet_name_input, pet_animal_type_input, pet_breed_input, pet_size_input, pet_age_input, pet_condition_input, pet_firebase_photoid;
     Button update_button,delete_button;
-    String id, breed, name, type, size, age, condition, firebasePhotoId;
+    String id, breed, name, type, size, age, condition, firebasePhotoId,firebasePhotoIdFetchFromDB;
     ImageView imgViewUpdate;
 
     //Firebase
@@ -96,6 +96,8 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
         age = getIntent().getStringExtra("pet_age_update");
         breed = getIntent().getStringExtra("pet_breed_update");
         condition = getIntent().getStringExtra("pet_condition_update_new");
+        firebasePhotoIdFetchFromDB = getIntent().getStringExtra("pet_firebase_id_update");
+        Log.d("firebases", firebasePhotoIdFetchFromDB);
         pet_name_input.setText(name);
         pet_animal_type_input.setText(type);
         pet_age_input.setText(age);

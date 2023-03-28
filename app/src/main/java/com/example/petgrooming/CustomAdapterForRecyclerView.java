@@ -37,6 +37,8 @@ public class CustomAdapterForRecyclerView extends RecyclerView.Adapter<CustomAda
         this.pet_firebaseid = pet_firebaseid;
 
 
+
+
     }
     @NonNull
     @Override
@@ -53,6 +55,7 @@ public class CustomAdapterForRecyclerView extends RecyclerView.Adapter<CustomAda
         holder.pet_breed_txt.setText(String.valueOf(pet_breed.get(position)));
         holder.pet_type_txt.setText(String.valueOf(pet_type.get(position)));
 
+
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +67,7 @@ public class CustomAdapterForRecyclerView extends RecyclerView.Adapter<CustomAda
                 intent.putExtra("pet_age_update", String.valueOf(pet_age.get(position)));
                 intent.putExtra("pet_condition_update_new", String.valueOf(pet_condition.get(position)));
                 intent.putExtra("pet_id_update", String.valueOf(pet_id.get(position)));
+                intent.putExtra("pet_firebase_id_update", String.valueOf(pet_firebaseid.get(position)));
                 context.startActivity(intent);
 
             }

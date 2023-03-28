@@ -28,6 +28,7 @@ public class MapsActivityBooking extends FragmentActivity implements OnMapReadyC
 
     private static final int LOCATION_PERMISSION_CODE = 101;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +70,10 @@ public class MapsActivityBooking extends FragmentActivity implements OnMapReadyC
                 PackageManager.PERMISSION_GRANTED) {
             googleMap.setMyLocationEnabled(true);
             googleMap.getUiSettings().setMyLocationButtonEnabled(true);
+
+
+
+
 
         } else {
             Toast.makeText(this, "Error", Toast.LENGTH_LONG).show();
