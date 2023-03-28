@@ -18,7 +18,7 @@ public class PetListActivity extends NavigationBar {
     FloatingActionButton add_button;
 
     MyPetInfoDatabaseHelper myDB;
-    ArrayList<String> pet_id, pet_name, pet_type, pet_breed, pet_condition, pet_age, pet_size;
+    ArrayList<String> pet_id, pet_name, pet_type, pet_breed, pet_condition, pet_age, pet_size, pet_firebaseid;
 
 
     @Override
@@ -33,6 +33,7 @@ public class PetListActivity extends NavigationBar {
         pet_condition = new ArrayList<>();
         pet_age = new ArrayList<>();
         pet_size = new ArrayList<>();
+        pet_firebaseid = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerViewPetInfo);
         add_button = findViewById(R.id.floatingActionButtonAddPet);
         add_button.setOnClickListener((View v) -> {
@@ -43,7 +44,7 @@ public class PetListActivity extends NavigationBar {
 
         storeDataInArrays();
         CustomAdapterForRecyclerView customAdapterForRecyclerView= new CustomAdapterForRecyclerView(PetListActivity.this,
-                pet_name, pet_type, pet_breed, pet_size, pet_age, pet_condition, pet_id);
+                pet_name, pet_type, pet_breed, pet_size, pet_age, pet_condition, pet_id,pet_firebaseid);
         recyclerView.setAdapter(customAdapterForRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(PetListActivity.this));
 
@@ -73,6 +74,7 @@ public class PetListActivity extends NavigationBar {
                 pet_age.add(cursor.getString(4));
                 pet_size.add(cursor.getString(5));
                 pet_condition.add(cursor.getString(6));
+                pet_firebaseid.add(cursor.getString(7));
             }
             //empty_imageview.setVisibility(View.GONE);
             //no_data.setVisibility(View.GONE);

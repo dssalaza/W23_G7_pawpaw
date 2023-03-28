@@ -20,11 +20,11 @@ import java.util.ArrayList;
 public class CustomAdapterForRecyclerView extends RecyclerView.Adapter<CustomAdapterForRecyclerView.MyViewHolder>
 {
     private Context context;
-    ArrayList pet_name, pet_type, pet_breed, pet_size, pet_age, pet_condition, pet_id;
+    ArrayList pet_name, pet_type, pet_breed, pet_size, pet_age, pet_condition, pet_id,pet_firebaseid;
    // int position;
     CustomAdapterForRecyclerView(Context context, ArrayList pet_name, ArrayList pet_type,
                                  ArrayList pet_breed, ArrayList pet_size, ArrayList pet_age,
-                                 ArrayList pet_condition, ArrayList pet_id)
+                                 ArrayList pet_condition, ArrayList pet_id, ArrayList pet_firebaseid)
     {
         this.context = context;
         this.pet_name = pet_name;
@@ -34,6 +34,7 @@ public class CustomAdapterForRecyclerView extends RecyclerView.Adapter<CustomAda
         this.pet_age = pet_age;
         this.pet_condition = pet_condition;
         this.pet_id = pet_id;
+        this.pet_firebaseid = pet_firebaseid;
 
 
     }
@@ -51,6 +52,7 @@ public class CustomAdapterForRecyclerView extends RecyclerView.Adapter<CustomAda
         holder.pet_name_txt.setText(String.valueOf(pet_name.get(position)));
         holder.pet_breed_txt.setText(String.valueOf(pet_breed.get(position)));
         holder.pet_type_txt.setText(String.valueOf(pet_type.get(position)));
+
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
