@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -62,6 +64,7 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
                 chooseProfilePicture();
             }
         });
+
         getAndSetIntentData();
         update_button.setOnClickListener((View v) -> {
             MyPetInfoDatabaseHelper myDB = new MyPetInfoDatabaseHelper(UpdatePetInfoActivity.this);
@@ -78,23 +81,23 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
             startActivity(intent);
 
         });
+
         delete_button.setOnClickListener((View v) -> {
             MyPetInfoDatabaseHelper myDB = new MyPetInfoDatabaseHelper(UpdatePetInfoActivity.this);
             myDB.deleteOneRow(id);
-
         });
+
         book_button.setOnClickListener((View v) -> {
             startActivity(new Intent(this, MapsActivityBooking.class));
-
-
         });
 
-
-
-
     }
+
     void getAndSetIntentData()
     {
+        firebasePhotoIdFetchFromDB = getIntent().getStringExtra("pet_firebase_id_update");
+        setPetPicture(firebasePhotoIdFetchFromDB);
+
         id = getIntent().getStringExtra("pet_id_update");
         name = getIntent().getStringExtra("pet_name_update");
         type = getIntent().getStringExtra("pet_animal_type_update");
@@ -102,15 +105,42 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
         age = getIntent().getStringExtra("pet_age_update");
         breed = getIntent().getStringExtra("pet_breed_update");
         condition = getIntent().getStringExtra("pet_condition_update_new");
-        firebasePhotoIdFetchFromDB = getIntent().getStringExtra("pet_firebase_id_update");
-        Log.d("firebases", firebasePhotoIdFetchFromDB);
+
         pet_name_input.setText(name);
         pet_animal_type_input.setText(type);
         pet_age_input.setText(age);
         pet_size_input.setText(size);
         pet_breed_input.setText(breed);
         pet_condition_input.setText(condition);
+    }
 
+    private void setPetPicture(String firebasePhotoIdFetchFromDB){
+        Log.d("Firebase", "Firebase id: " + firebasePhotoIdFetchFromDB);
+
+        if (firebasePhotoIdFetchFromDB!= null){
+
+            try {
+                StorageReference pathReference = storageReference.child("images/pets/" + firebasePhotoIdFetchFromDB);
+                final long ONE_MEGABYTE = 1024 * 1024;
+                pathReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                    @Override
+                    public void onSuccess(byte[] bytes) {
+                        Log.d("Firebase", "Pet profile photo downloaded");
+                        Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                        imgViewUpdate.setImageBitmap(bmp);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        Log.d("Firebase", "There is an error downloading the pet photo");
+                    }
+                });
+
+            } catch (Exception e){
+                Log.d("Firebase","Error:" + e);
+            }
+
+        }
     }
 
     private void chooseProfilePicture(){
