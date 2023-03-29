@@ -51,9 +51,6 @@ public class HomeScreenMainActivity extends NavigationBar implements NavigationV
     FirebaseStorage storage;
     StorageReference storageReference;
 
-    GoogleSignInClient gClient;
-    GoogleSignInOptions gOptions;
-
     CardView cardViewBookAppt;
     CardView cardViewAddDog;
     CardView cardViewAddCat;
@@ -98,9 +95,6 @@ public class HomeScreenMainActivity extends NavigationBar implements NavigationV
         //String trEmail = bundle.getString("EMAIL", "-");
         //userName.setText(trEmail);
 
-        gOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        gClient = GoogleSignIn.getClient(this, gOptions);
-
         GoogleSignInAccount gAccount = GoogleSignIn.getLastSignedInAccount(this);
         if (gAccount != null) {
             String gName = gAccount.getDisplayName();
@@ -135,32 +129,6 @@ public class HomeScreenMainActivity extends NavigationBar implements NavigationV
             }
         });
 
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_home:
-                break;
-            case R.id.nav_mypet:
-                Intent intent = new Intent (HomeScreenMainActivity.this, PetListActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.nav_settings:
-                break;
-            case R.id.nav_logout:
-                Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
-                gClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        finish();
-                        startActivity(new Intent(HomeScreenMainActivity.this, LoginActivity.class));
-                    }
-                });
-                break;
-        }
-        drawerLayout.closeDrawer(GravityCompat.START); //as one item is clicked, drawer closes
-        return true;
     }
 
     @Override
