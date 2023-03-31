@@ -37,6 +37,7 @@
     <include layout="@layout/navigation_bar" />
 
     <RadioGroup
+        android:id="@+id/radioGroupBookAppt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="120dp"

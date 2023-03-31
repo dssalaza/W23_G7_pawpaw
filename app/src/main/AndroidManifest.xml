@@ -61,11 +61,7 @@
             android:name=".Splash_Activity"
             android:exported="true"
             android:theme="@style/Theme.PetGroomingNoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -80,7 +76,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="your_api_key_insert_here" />
+            android:value="AIzaSyBl8F84-2hXsgOgB9mdMJvaqlTpidHyGIY" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
@@ -106,6 +102,11 @@
         <activity
             android:name=".HomeScreenMainActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->

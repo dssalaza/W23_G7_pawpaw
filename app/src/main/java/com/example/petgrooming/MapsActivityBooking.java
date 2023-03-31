@@ -27,6 +27,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.petgrooming.databinding.ActivityMapsBookingBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import java.util.HashMap;
+
 public class MapsActivityBooking extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapClickListener {
 
     private GoogleMap mMap;
@@ -52,10 +54,13 @@ public class MapsActivityBooking extends FragmentActivity implements OnMapReadyC
 
         checkOutFromMaps = findViewById(R.id.checkOutFromMaps);
         checkOutFromMaps.setOnClickListener((View v) -> {
+            HashMap<String, String> sendInfoToBookAppt;
+            sendInfoToBookAppt = (HashMap<String, String>) getIntent().getSerializableExtra("sendInfoToMapsActivityHM");
                 Intent intent = new Intent(this,
                         BookAppointmentActivity.class);
                 intent.putExtra("LatitudeFromMap", String.valueOf(wayLatitude));
                 intent.putExtra("LongitudeFromMap", String.valueOf(wayLongitude));
+                intent.putExtra("sendInfoToBookAppt", sendInfoToBookAppt);
                 startActivity(intent);
         });
 

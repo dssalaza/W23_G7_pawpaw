@@ -21,6 +21,7 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -47,6 +48,9 @@ public class CheckOutActivity extends AppCompatActivity {
 
     Button btnDownloadPDF;
 
+    TextView petInfo, apptDate, selectedPackage, totalPrice;
+    HashMap<String, String> bookingInfo;
+
     int pageHeight = 1120;
     int pagewidth = 792;
 
@@ -64,6 +68,8 @@ public class CheckOutActivity extends AppCompatActivity {
 
     String customerIDStripe;
 
+    String totalPriceText,petInfoText;
+
     String clientSecret;
 
     final String STRIPE_API_BASE_URL = "https://api.stripe.com/v1";
@@ -76,7 +82,39 @@ public class CheckOutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_out);
+        bookingInfo = (HashMap<String, String>)getIntent().getSerializableExtra("sendInfoToCheckout");
+        petInfo = findViewById(R.id.petInfoInput);
+        apptDate = findViewById(R.id.apptDateInput);
+        selectedPackage = findViewById(R.id.packageSelected);
+        totalPrice = findViewById(R.id.totalPrice);
 
+
+
+
+
+        for(String i: bookingInfo.keySet())
+        {
+            Log.d("values",bookingInfo.get(i));
+        }
+        petInfoText = bookingInfo.get("name") + ", "
+                + bookingInfo.get("breed") + " "+ bookingInfo.get("type")
+                + "\nSize: " + bookingInfo.get("size") +"\n"
+                + "Age: " + bookingInfo.get("age")
+                ;
+        petInfo.setText(petInfoText);
+        apptDate.setText(bookingInfo.get("selectedDate"));
+        selectedPackage.setText(bookingInfo.get("PackageInfo"));
+
+       if(bookingInfo.get("PackageInfo").equals("Basic Package"))
+        {
+            totalPriceText = "$65";
+            totalPrice.setText(totalPriceText);
+        }
+        else
+        {
+            totalPriceText = "$90";
+            totalPrice.setText(totalPriceText);
+        }
 
         getStripeCustomerID();
 
@@ -84,7 +122,7 @@ public class CheckOutActivity extends AppCompatActivity {
         //custom - Sri: Start
 
         btnDownloadPDF = findViewById(R.id.btnDownloadPdf);
-        bmp = BitmapFactory.decodeResource(getResources(), R.drawable.androidstudio);
+        bmp = BitmapFactory.decodeResource(getResources(), R.drawable.paw);
         scaledbmp = Bitmap.createScaledBitmap(bmp, 140, 140, false);
         stripeButton = findViewById(R.id.btnPay);
 
@@ -141,7 +179,7 @@ public class CheckOutActivity extends AppCompatActivity {
 
         Canvas canvas = myPage.getCanvas();
 
-        canvas.drawBitmap(scaledbmp, 56, 40, paint);
+        canvas.drawBitmap(scaledbmp, 346, 40, paint);
 
         title.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
 
@@ -149,15 +187,31 @@ public class CheckOutActivity extends AppCompatActivity {
 
         title.setColor(ContextCompat.getColor(this, R.color.black));
 
-        canvas.drawText("Excited to meet you soon!", 209, 100, title);
-        canvas.drawText("Paw Paw", 209, 80, title);
+        //canvas.drawText("Excited to meet you soon!", 209, 100, title);
+        //canvas.drawText("Paw Paw", 209, 80, title);
 
         title.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         title.setColor(ContextCompat.getColor(this, R.color.black));
-        title.setTextSize(15);
+        title.setTextSize(30);
+        int x = 209;
+        int y = 260;
 
-        title.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText("Your Order Number: ", 396, 560, title);
+        //title.setTextAlign(Paint.Align.CENTER);
+        canvas.drawText("Order Number: ", 209, y, title);
+        y += 60;
+        canvas.drawText("Pet Name: "+bookingInfo.get("name"), 209, y, title);
+        y += 60;
+        canvas.drawText("Pet Breed: "+bookingInfo.get("breed"), 209, y, title);
+        y += 60;
+        canvas.drawText("Pet Type: "+bookingInfo.get("type"), 209, y, title);
+        y += 60;
+        canvas.drawText("Pet Size: "+bookingInfo.get("size"), 209, y, title);
+        y += 60;
+        canvas.drawText("Pet Age: "+bookingInfo.get("age"), 209, y, title);
+        y += 60;
+        canvas.drawText("Package: "+bookingInfo.get("PackageInfo"), 209, y, title);
+        y += 60;
+        canvas.drawText("Total Cost: "+totalPriceText, 209, y, title);
 
         pdfDocument.finishPage(myPage);
 

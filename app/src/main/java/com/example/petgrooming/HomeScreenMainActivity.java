@@ -99,7 +99,7 @@ public class HomeScreenMainActivity extends NavigationBar implements NavigationV
         cardViewBookAppt.setOnClickListener((View v) -> {
             //startActivity(new Intent(this, MapsActivityBooking.class));
             // Need to update this activity when go live
-            startActivity(new Intent(this, BookAppointmentActivity.class));
+            startActivity(new Intent(this, PetListActivity.class));
         });
 
         cardViewAddDog = findViewById(R.id.cardViewDog);

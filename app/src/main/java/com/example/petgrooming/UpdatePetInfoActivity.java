@@ -24,6 +24,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 public class UpdatePetInfoActivity extends AppCompatActivity {
@@ -32,6 +33,7 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
     Button update_button,delete_button, book_button;
     String id, breed, name, type, size, age, condition, firebasePhotoId,firebasePhotoIdFetchFromDB;
     ImageView imgViewUpdate;
+    HashMap<String, String> sendInfoToMapsActivity;
 
     //Firebase
     Uri imageUri;
@@ -88,13 +90,18 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
         });
 
         book_button.setOnClickListener((View v) -> {
-            startActivity(new Intent(this, MapsActivityBooking.class));
+
+            Intent intent = new Intent(this,
+                    MapsActivityBooking.class);
+            intent.putExtra("sendInfoToMapsActivityHM", sendInfoToMapsActivity);
+            startActivity(intent);
         });
 
     }
 
     void getAndSetIntentData()
     {
+        sendInfoToMapsActivity = new HashMap<>();
         firebasePhotoIdFetchFromDB = getIntent().getStringExtra("pet_firebase_id_update");
         setPetPicture(firebasePhotoIdFetchFromDB);
 
@@ -105,6 +112,15 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
         age = getIntent().getStringExtra("pet_age_update");
         breed = getIntent().getStringExtra("pet_breed_update");
         condition = getIntent().getStringExtra("pet_condition_update_new");
+
+        sendInfoToMapsActivity.put("id", id);
+        sendInfoToMapsActivity.put("name", name);
+        sendInfoToMapsActivity.put("type", type);
+        sendInfoToMapsActivity.put("size", size);
+        sendInfoToMapsActivity.put("age", age);
+        sendInfoToMapsActivity.put("breed", breed);
+        sendInfoToMapsActivity.put("condition", condition);
+
 
         pet_name_input.setText(name);
         pet_animal_type_input.setText(type);
