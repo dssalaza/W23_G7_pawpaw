@@ -92,7 +92,7 @@
         android:layout_height="18dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text=""
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/imgViewAddPetInfoToDB"
         app:layout_constraintStart_toStartOf="parent"
