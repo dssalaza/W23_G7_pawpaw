@@ -64,6 +64,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pet_age_hm" />
 
+    <ImageView
+        android:id="@+id/imgViewAddPetInfoFromDB"
+        android:layout_width="102dp"
+        android:layout_height="105dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/androidstudio"
+        tools:srcCompat="@drawable/androidstudio" />
+
+    <EditText
+        android:id="@+id/editTextFireBaseIdinAddPetInfoFromDB"
+        android:layout_width="94dp"
+        android:layout_height="18dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/imgViewAddPetInfoFromDB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/add_button_hm"
         android:layout_width="match_parent"
@@ -76,6 +98,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pet_condition_hm" />
 
-    <include layout="@layout/navigation_bar" />
+    <include
+        layout="@layout/navigation_bar"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -87,6 +87,9 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
         delete_button.setOnClickListener((View v) -> {
             MyPetInfoDatabaseHelper myDB = new MyPetInfoDatabaseHelper(UpdatePetInfoActivity.this);
             myDB.deleteOneRow(id);
+            Intent intent = new Intent(UpdatePetInfoActivity.this,
+                    HomeScreenMainActivity.class);
+            startActivity(intent);
         });
 
         book_button.setOnClickListener((View v) -> {

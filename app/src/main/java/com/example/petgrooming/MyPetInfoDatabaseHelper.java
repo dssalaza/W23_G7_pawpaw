@@ -55,7 +55,7 @@ public class MyPetInfoDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    void addPet(String petName, String petType, String petBreed, int petAge, double petSize, String petCondition){
+    void addPet(String petName, String petType, String petBreed, int petAge, double petSize, String petCondition, String firebasePhotoId){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -65,6 +65,7 @@ public class MyPetInfoDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_petage, petAge);
         cv.put(COLUMN_petsize, petSize);
         cv.put(COLUMN_petcondition, petCondition);
+        cv.put(COLUMN_firebasephotoid, firebasePhotoId);
         long result = db.insert(TABLE_NAME,null, cv);
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();

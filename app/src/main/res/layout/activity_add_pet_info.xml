@@ -76,6 +76,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pet_age" />
 
+    <ImageView
+        android:id="@+id/imgViewAddPetInfoToDB"
+        android:layout_width="102dp"
+        android:layout_height="105dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/androidstudio"
+        tools:srcCompat="@drawable/androidstudio" />
+
+    <EditText
+        android:id="@+id/editTextFireBaseIdinAddPetInfoToDB"
+        android:layout_width="94dp"
+        android:layout_height="18dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/imgViewAddPetInfoToDB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/add_button"
         android:layout_width="match_parent"
