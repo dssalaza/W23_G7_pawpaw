@@ -48,7 +48,7 @@ public class CheckOutActivity extends AppCompatActivity {
 
     Button btnDownloadPDF;
 
-    TextView petInfo, apptDate, selectedPackage, totalPrice;
+    TextView petInfo, apptDate, selectedPackage, totalPrice, paymentStatus;
     HashMap<String, String> bookingInfo;
 
     int pageHeight = 1120;
