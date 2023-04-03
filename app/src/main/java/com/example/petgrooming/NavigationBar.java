@@ -61,7 +61,7 @@ public abstract class NavigationBar extends AppCompatActivity implements  Naviga
                 startActivity(new Intent(this, HomeScreenMainActivity.class));
                 break;
             case R.id.btnBook:
-                startActivity(new Intent(this, BookAppointmentActivity.class));
+                startActivity(new Intent(this, PetListActivity.class));
                 break;
             //Left drawer options
             case R.id.nav_home:
