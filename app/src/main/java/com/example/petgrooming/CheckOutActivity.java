@@ -44,7 +44,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CheckOutActivity extends AppCompatActivity {
+public class CheckOutActivity extends NavigationBar {
 
     Button btnDownloadPDF;
 
@@ -81,7 +81,6 @@ public class CheckOutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check_out);
         bookingInfo = (HashMap<String, String>)getIntent().getSerializableExtra("sendInfoToCheckout");
         petInfo = findViewById(R.id.petInfoInput);
         apptDate = findViewById(R.id.apptDateInput);
@@ -146,6 +145,16 @@ public class CheckOutActivity extends AppCompatActivity {
                 generatePDF();
         });
 
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_check_out;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.bottonnav;
     }
 
     void onPaymentSheetResult(final PaymentSheetResult paymentSheetResult) {
