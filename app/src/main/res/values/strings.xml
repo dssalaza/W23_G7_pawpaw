@@ -27,5 +27,6 @@
     <string name="stringBtnPay">Pay</string>
     <string name="premium_pkg">Premium Package ($90)</string>
     <string name="basic_pkg">Basic Package ($65)</string>
+    <string name="lblPaymentStatus">Unpaid</string>
 
 </resources>

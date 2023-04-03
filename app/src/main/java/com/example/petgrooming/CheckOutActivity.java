@@ -87,10 +87,7 @@ public class CheckOutActivity extends AppCompatActivity {
         apptDate = findViewById(R.id.apptDateInput);
         selectedPackage = findViewById(R.id.packageSelected);
         totalPrice = findViewById(R.id.totalPrice);
-
-
-
-
+        paymentStatus = findViewById(R.id.paymentStatus);
 
         for(String i: bookingInfo.keySet())
         {
@@ -159,6 +156,7 @@ public class CheckOutActivity extends AppCompatActivity {
             Toast.makeText(this, "Payment Failed", Toast.LENGTH_SHORT).show();
         }
         if(paymentSheetResult instanceof  PaymentSheetResult.Completed){
+            paymentStatus.setText("PAID");
             Toast.makeText(this, "Payment Completed", Toast.LENGTH_SHORT).show();
         }
     }
