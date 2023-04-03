@@ -47,13 +47,13 @@
             android:id="@+id/premiumPackage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Premium Package (90$)" />
+            android:text="@string/premium_pkg" />
 
         <RadioButton
             android:id="@+id/basicPackage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Basic Package (65$)" />
+            android:text="@string/basic_pkg" />
     </RadioGroup>
 
     <!--this can be deleted if we don't need the bottom nav bar in this activity-->

@@ -107,13 +107,13 @@ public class CheckOutActivity extends AppCompatActivity {
 
        if(bookingInfo.get("PackageInfo").equals("Basic Package"))
         {
-            totalPriceText = "$65";
-            totalPrice.setText(totalPriceText);
+            totalPriceText = "65.00";
+            totalPrice.setText("$"+totalPriceText);
         }
         else
         {
-            totalPriceText = "$90";
-            totalPrice.setText(totalPriceText);
+            totalPriceText = "90.00";
+            totalPrice.setText("$"+totalPriceText);
         }
 
         getStripeCustomerID();
@@ -383,9 +383,10 @@ public class CheckOutActivity extends AppCompatActivity {
             @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
+                String amount = totalPriceText;
                 Map<String, String> params = new HashMap<>();
                 params.put("customer", customerID);
-                params.put("amount", Double.toString(101).replace(".",""));
+                params.put("amount", amount.replace(".",""));
                 params.put("currency","cad");
                 params.put("automatic_payment_methods[enabled]","true");
                 return params;

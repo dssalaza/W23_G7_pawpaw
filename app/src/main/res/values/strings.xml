@@ -25,5 +25,7 @@
     <string name="txtBottomNav3">Book</string>
     <string name="btnLogout">Logout</string>
     <string name="stringBtnPay">Pay</string>
+    <string name="premium_pkg">Premium Package ($90)</string>
+    <string name="basic_pkg">Basic Package ($65)</string>
 
 </resources>
