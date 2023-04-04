@@ -166,7 +166,16 @@ public class CheckOutActivity extends NavigationBar {
         }
         if(paymentSheetResult instanceof  PaymentSheetResult.Completed){
             paymentStatus.setText("PAID");
-            Toast.makeText(this, "Payment Completed", Toast.LENGTH_SHORT).show();
+
+            MyPetInfoDatabaseHelper db = new MyPetInfoDatabaseHelper(CheckOutActivity.this);
+            db.addAppointment(
+                    bookingInfo.get("name"),
+                    apptDate.getText().toString().trim(),
+                    selectedPackage.getText().toString().trim(),
+                    Double.valueOf(totalPriceText),
+                    paymentStatus.getText().toString().trim()
+            );
+
         }
     }
 
