@@ -38,15 +38,11 @@ public class AddPetInfoToDBFromHomePageActivity extends NavigationBar {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-        Log.d("CREATING","YES< CREATING" );
-
         petPicture = findViewById(R.id.imgViewAddPetInfoFromDB);
 
         petPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("chooseProfilePicture","Si entro a chooseProfilePicture" );
                 chooseProfilePicture();
             }
         });
