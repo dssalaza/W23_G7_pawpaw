@@ -10,7 +10,9 @@
         android:id="@+id/pet_name_hm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="30dp"
         android:ems="10"
         android:hint="Pet Name"
         android:inputType="textPersonName"
@@ -22,7 +24,9 @@
         android:id="@+id/pet_breed_hm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
         android:ems="10"
         android:hint="Pet Breed"
         android:inputType="textPersonName"
@@ -34,29 +38,37 @@
         android:id="@+id/pet_size_hm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
         android:ems="10"
         android:hint="Pet Size"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pet_breed_hm" />
+
     <EditText
         android:id="@+id/pet_age_hm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
         android:ems="10"
         android:hint="Pet Age"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pet_size_hm" />
+
     <EditText
         android:id="@+id/pet_condition_hm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
         android:ems="10"
         android:hint="Pet Condition"
         android:inputType="textPersonName"
@@ -66,13 +78,14 @@
 
     <ImageView
         android:id="@+id/imgViewAddPetInfoFromDB"
-        android:layout_width="102dp"
-        android:layout_height="105dp"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/androidstudio"
-        tools:srcCompat="@drawable/androidstudio" />
+        app:srcCompat="@drawable/paw"
+        tools:srcCompat="@drawable/paw" />
 
     <EditText
         android:id="@+id/editTextFireBaseIdinAddPetInfoFromDB"
@@ -88,12 +101,14 @@
 
     <Button
         android:id="@+id/add_button_hm"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
         android:text="Add"
-        android:textSize="20sp"
         android:textAllCaps="false"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pet_condition_hm" />

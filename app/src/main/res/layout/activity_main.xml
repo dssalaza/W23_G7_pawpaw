@@ -29,10 +29,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-<!--            <include-->
-<!--                android:id="@+id/include"-->
-<!--                layout="@layout/toolbar" />-->
-
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="0dp"
@@ -44,7 +40,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:navigationIcon="@drawable/baseline_menu_24"
-                app:titleTextColor="@color/white"/>
+                app:titleTextColor="@color/brown"/>
 
             <TextView
                 android:id="@+id/txtViewWelcome"
@@ -61,16 +57,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
             <TextView
+                android:id="@+id/txtViewUserName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtViewUserName"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/bellota_text_bold"
                 android:textColor="@color/brown"
                 android:textSize="20sp"
-                android:layout_marginStart="20dp"
+                app:layout_constraintEnd_toStartOf="@+id/imgViewFavHooman"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtViewWelcome"
-                app:layout_constraintEnd_toStartOf="@+id/imgViewFavHooman"/>
+                app:layout_constraintTop_toBottomOf="@+id/txtViewWelcome" />
 
             <ImageView
                 android:id="@+id/imgViewFavHooman"

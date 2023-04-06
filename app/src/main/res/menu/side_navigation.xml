@@ -13,9 +13,14 @@
             android:title="@string/itemHome"/>
 
         <item
+            android:id="@+id/nav_me"
+            android:icon="@drawable/baseline_person_24"
+            android:title="@string/itemMyProfile" />
+
+        <item
             android:id="@+id/nav_mypet"
             android:icon="@drawable/baseline_pets_24"
-            android:title="@string/itemMypet" />
+            android:title= "@string/itemMypet" />
 
         <item
             android:id="@+id/nav_settings"

@@ -5,10 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-//Seulah 03/13/2023 - Connect to SQLite
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String databaseName = "Signup.db";
@@ -17,25 +17,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, "Signup.db", null, 1);
     }
 
-
     @Override
     public void onCreate(SQLiteDatabase MyDatabase) {
-        MyDatabase.execSQL("create Table allusers(email TEXT primary key, password TEXT)");
+        MyDatabase.execSQL("CREATE TABLE allusers" +
+                "(email TEXT primary key, " +
+                "password TEXT, " +
+                "fname TEXT, " +
+                "lname TEXT, " +
+                "firebase_photo_id TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase MyDatabase, int i, int i1) {
-        MyDatabase.execSQL("drop TABLE if exists allusers");
+        MyDatabase.execSQL("DROP TABLE IF EXISTS allusers");
     }
 
-    public Boolean insertData(String email, String password) {
+    public Boolean insertData
+            (String email, String password, String fname, String lname) {
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("email", email);
-//        contentValues.put("fname", fname);
-//        contentValues.put("lname", lname);
-        contentValues.put("password", password);
-        long result = MyDatabase.insert("allusers", null, contentValues);
+        ContentValues cv = new ContentValues();
+        cv.put("email", email);
+        cv.put("password", password);
+        cv.put("fname", fname);
+        cv.put("lname ", lname);
+        long result = MyDatabase.insert("allusers", null, cv);
 
         if(result == -1) {
             return false;
@@ -67,14 +72,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         }
     }
-
-
-
-
-
-
-
-
 
 
 }

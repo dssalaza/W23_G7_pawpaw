@@ -25,20 +25,20 @@ public class SignupActivity extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(this);
 
         binding.signupButton.setOnClickListener((View view) -> {
-//            String fname = binding.signupFName.getText().toString();
-//            String lname = binding.signupLName.getText().toString();
+            String fname = binding.signupFirstname.getText().toString();
+            String lname = binding.signupLastname.getText().toString();
             String email = binding.signupEmail.getText().toString();
             String password = binding.signupPassword.getText().toString();
             String confirmPassword = binding.signupConfirm.getText().toString();
 
-            if(email.equals("") || password.equals("") || confirmPassword.equals(""))
+            if(email.equals("") || password.equals("") || confirmPassword.equals("") || fname.equals("") || lname.equals(""))
                 Toast.makeText(SignupActivity.this, "All fields are mandatory" , Toast.LENGTH_SHORT).show();
             else {
                 if(password.equals(confirmPassword)) {
                     Boolean checkUserEmail = databaseHelper.checkEmail(email);
 
                     if (checkUserEmail == false) {
-                        Boolean insert = databaseHelper.insertData(email, password);
+                        Boolean insert = databaseHelper.insertData(email, password, fname, lname);
 
                         if(insert == true) {
                             Toast.makeText(SignupActivity.this, "Signup Success", Toast.LENGTH_SHORT).show();

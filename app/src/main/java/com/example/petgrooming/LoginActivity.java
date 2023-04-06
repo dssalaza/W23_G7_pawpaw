@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
             String email = binding.loginEmail.getText().toString();
             String password = binding.loginPassword.getText().toString();
 
+
             if(email.equals("") || password.equals(""))
                 Toast.makeText(this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
             else {
@@ -58,11 +59,11 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, HomeScreenMainActivity.class);
                     startActivity(intent);
-//                    Intent myResult = new Intent(this, HomeScreenMainActivity.class);
-//                    Bundle bundle= new Bundle();
-//                    bundle.putString("EMAIL", email);
-//                    myResult.putExtras(bundle);
-//                    startActivity(myResult);
+                    Intent myResult = new Intent(this, HomeScreenMainActivity.class);
+                    Bundle bundle= new Bundle();
+                    bundle.putString("EMAIL", email);
+                    myResult.putExtras(bundle);
+                    startActivity(myResult);
                 } else {
                     Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                 }

@@ -3,12 +3,14 @@ package com.example.petgrooming;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,10 +18,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-
-public abstract class NavigationBar extends AppCompatActivity implements  NavigationBarView.OnItemSelectedListener{
+public abstract class NavigationBar extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener{
 
     protected BottomNavigationView navigationView;
+    TextView userNameNav;
+    TextView emailNav;
 
     //Third Party Auth
     GoogleSignInClient gClient;
@@ -35,6 +38,18 @@ public abstract class NavigationBar extends AppCompatActivity implements  Naviga
 
         gOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gClient = GoogleSignIn.getClient(this, gOptions);
+
+//        userNameNav = findViewById(R.id.navUserName);
+//        emailNav = findViewById(R.id.navEmail);
+//
+//        GoogleSignInAccount gAccount = GoogleSignIn.getLastSignedInAccount(this);
+//        if (gAccount != null) {
+//            String gName = gAccount.getDisplayName();
+//            String gEmail = gAccount.getEmail();
+//            userNameNav.setText(gName);
+//            emailNav.setText(gEmail);
+//        }
+
     }
 
     @Override

@@ -85,20 +85,26 @@ public class HomeScreenMainActivity extends NavigationBar implements NavigationV
 
         //login Information to be displayed--------------------------------
         userName = findViewById(R.id.txtViewUserName);
-        //Bundle bundle = getIntent().getExtras();
-        //String trEmail = bundle.getString("EMAIL", "-");
-        //userName.setText(trEmail);
 
         GoogleSignInAccount gAccount = GoogleSignIn.getLastSignedInAccount(this);
         if (gAccount != null) {
-            String gName = gAccount.getDisplayName();
-            userName.setText(gName);
+//            String gName = gAccount.getDisplayName();
+            String gEmail = gAccount.getEmail();
+            userName.setText(gEmail);
+        } else {
+            Bundle bundle = getIntent().getExtras();
+            String trEmail = bundle.getString("EMAIL", "-");
+            if (trEmail != null) {
+                userName.setText(trEmail);
+            }
         }
+
+
 
         cardViewBookAppt = findViewById(R.id.cardViewBook);
         cardViewBookAppt.setOnClickListener((View v) -> {
             //startActivity(new Intent(this, MapsActivityBooking.class));
-            // Need to update this activity when go live
+            //Need to update this activity when go live
             startActivity(new Intent(this, PetListActivity.class));
         });
 

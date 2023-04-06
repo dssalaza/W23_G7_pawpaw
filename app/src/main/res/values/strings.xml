@@ -5,7 +5,8 @@
     <string name="close_nav">Close Navigation Drawer</string>
 
     <string name="itemHome">Home</string>
-    <string name="itemMypet">MyPet</string>
+    <string name="itemMyProfile">My Profile</string>
+    <string name="itemMypet">My Pet</string>
     <string name="itemSettings">Settings</string>
     <string name="itemLogout">Logout</string>
 
