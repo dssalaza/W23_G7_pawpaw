@@ -8,15 +8,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class AddPetInfoToDBActivity extends AppCompatActivity {
 
 
-    EditText petName, petAnimalType, petBreed, petAge, petSize, petCondition,pet_firebase_photoid;
+    EditText petName, petBreed, petAge, petSize, petCondition,pet_firebase_photoid;
     Button add_button;
     //ImageView imgViewUpdate;
-    String firebasePhotoId;
+    String firebasePhotoId ;
+    String getTextFromRadioGrp = "";
+    RadioGroup radioGroup;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +28,7 @@ public class AddPetInfoToDBActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_pet_info);
         
         petName = findViewById(R.id.pet_name);
-        petAnimalType = findViewById(R.id.pet_animal_type);
+        radioGroup = findViewById(R.id.radioGroupAnimalType);
         petBreed = findViewById(R.id.pet_breed);
         petAge = findViewById(R.id.pet_age);
         petSize = findViewById(R.id.pet_size);
@@ -34,16 +38,16 @@ public class AddPetInfoToDBActivity extends AppCompatActivity {
         add_button.setOnClickListener((View view) -> {
 
             if (petName.getText().length() > 0 &&
-            petAnimalType.getText().length() > 0 &&
                     petBreed.getText().length() > 0 &&
                     petAge.getText().length() > 0 &&
                     petSize.getText().length() > 0 &&
-                    petCondition.getText().length() > 0)
+                    petCondition.getText().length() > 0 &&
+                    radioGroup.getCheckedRadioButtonId() != -1)
             {
                 MyPetInfoDatabaseHelper myDB = new MyPetInfoDatabaseHelper(AddPetInfoToDBActivity.this);
                 firebasePhotoId = pet_firebase_photoid.getText().toString();
                 myDB.addPet(petName.getText().toString().trim(),
-                        petAnimalType.getText().toString().trim(),
+                        getTextFromRadioGrp,
                         petBreed.getText().toString().trim(),
                         Integer.valueOf(petAge.getText().toString().trim()),
                         Double.valueOf(petSize.getText().toString().trim()),
@@ -60,6 +64,20 @@ public class AddPetInfoToDBActivity extends AppCompatActivity {
 
 
 
+        });
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.rdbtnDog)
+                {
+                    getTextFromRadioGrp = "Dog";
+                }
+                else if (checkedId == R.id.rdioBtnCat)
+                {
+                    getTextFromRadioGrp = "Cat";
+                }
+            }
         });
 
     }
