@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 public class PetListActivity extends NavigationBar {
     RecyclerView recyclerView;
     FloatingActionButton add_button;
+    TextView txtViewDefaultMsg;
 
     MyPetInfoDatabaseHelper myDB;
     ArrayList<String> pet_id, pet_name, pet_type, pet_breed, pet_condition, pet_age, pet_size, pet_firebaseid;
@@ -36,6 +38,7 @@ public class PetListActivity extends NavigationBar {
         pet_firebaseid = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerViewPetInfo);
         add_button = findViewById(R.id.floatingActionButtonAddPet);
+        txtViewDefaultMsg = findViewById(R.id.txtViewDefaultMsg);
         add_button.setOnClickListener((View v) -> {
 
             Intent intent = new Intent(PetListActivity.this, AddPetInfoToDBActivity.class);
@@ -63,10 +66,14 @@ public class PetListActivity extends NavigationBar {
     void storeDataInArrays(){
         Cursor cursor = myDB.readAllData();
         if(cursor.getCount() == 0){
+            txtViewDefaultMsg.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.INVISIBLE);
             //empty_imageview.setVisibility(View.VISIBLE);
             //no_data.setVisibility(View.VISIBLE);
         }else{
             while (cursor.moveToNext()){
+                txtViewDefaultMsg.setVisibility(View.INVISIBLE);
+                recyclerView.setVisibility(View.VISIBLE);
                 pet_id.add(cursor.getString(0));
                 pet_name.add(cursor.getString(1));
                 pet_type.add(cursor.getString(2));

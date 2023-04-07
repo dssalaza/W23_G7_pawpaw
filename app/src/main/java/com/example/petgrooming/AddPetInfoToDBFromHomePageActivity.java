@@ -62,18 +62,32 @@ public class AddPetInfoToDBFromHomePageActivity extends NavigationBar {
         petCondition = findViewById(R.id.pet_condition_hm);
         add_button = findViewById(R.id.add_button_hm);
         add_button.setOnClickListener((View view) -> {
-            MyPetInfoDatabaseHelper myDB = new MyPetInfoDatabaseHelper(AddPetInfoToDBFromHomePageActivity.this);
-            firebasePhotoId = pet_firebase_photoid.getText().toString();
-            myDB.addPet(petName.getText().toString().trim(),
-                    animalType,
-                    petBreed.getText().toString().trim(),
-                    Integer.valueOf(petAge.getText().toString().trim()),
-                    Double.valueOf(petSize.getText().toString().trim()),
-                    petCondition.getText().toString().trim(), firebasePhotoId
-            );
-            Intent intent = new Intent(AddPetInfoToDBFromHomePageActivity.this,
-                    HomeScreenMainActivity.class);
-            startActivity(intent);
+
+            if (petName.getText().length() > 0 &&
+                    petBreed.getText().length() > 0 &&
+                    petAge.getText().length() > 0 &&
+                    petSize.getText().length() > 0 &&
+                    petCondition.getText().length() > 0)
+            {
+                MyPetInfoDatabaseHelper myDB = new MyPetInfoDatabaseHelper(AddPetInfoToDBFromHomePageActivity.this);
+                firebasePhotoId = pet_firebase_photoid.getText().toString();
+                myDB.addPet(petName.getText().toString().trim(),
+                        animalType,
+                        petBreed.getText().toString().trim(),
+                        Integer.valueOf(petAge.getText().toString().trim()),
+                        Double.valueOf(petSize.getText().toString().trim()),
+                        petCondition.getText().toString().trim(), firebasePhotoId
+                );
+                Intent intent = new Intent(AddPetInfoToDBFromHomePageActivity.this,
+                        HomeScreenMainActivity.class);
+                startActivity(intent);
+
+            }
+            else
+            {
+                Toast.makeText(this,"Please enter all fields before proceeding further",Toast.LENGTH_SHORT).show();
+            }
+
 
         });
     }

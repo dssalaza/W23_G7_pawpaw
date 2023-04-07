@@ -52,9 +52,9 @@ public class CustomAdapterForRecyclerView extends RecyclerView.Adapter<CustomAda
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         //this.position = position;
-        holder.pet_name_txt.setText(String.valueOf(pet_name.get(position)));
-        holder.pet_breed_txt.setText(String.valueOf(pet_breed.get(position)));
-        holder.pet_type_txt.setText(String.valueOf(pet_type.get(position)));
+        holder.pet_name_txt.setText(holder.pet_name_txt.getText().toString()+String.valueOf(pet_name.get(position)));
+        holder.pet_breed_txt.setText(holder.pet_breed_txt.getText().toString()+String.valueOf(pet_breed.get(position)));
+        holder.pet_type_txt.setText(holder.pet_type_txt.getText().toString()+String.valueOf(pet_type.get(position)));
 
 
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
