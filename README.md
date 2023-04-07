@@ -12,6 +12,12 @@ PawPaw communicates with firebase, therefore it needs a `google-services.json` f
 app/google-services.json
 ```
 
+In order to use google maps to get the current location of the user, we need a MAPS_API_KEY. Please ask for this to the contributors of the project and put the value in local.properties file in your project.
+
+```
+MAPS_API_KEY = "YOUR_API_KEY"
+```
+
 In order to make payments the application needs to communicate with Stripe. In order to do so it needs a `STRIPE_SECRET_KEY` and a `STRIPE_PUBLISHABLE_KEY`. Please ask for this file to the contributors of the project and replace it in the `CheckOutActivity.java`
 
 ```
