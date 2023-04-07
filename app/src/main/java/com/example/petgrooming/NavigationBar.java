@@ -75,13 +75,7 @@ public abstract class NavigationBar extends AppCompatActivity implements Navigat
                 startActivity(new Intent(this, HomeScreenMainActivity.class));
                 break;
             case R.id.nav_myProfile:
-                Bundle bundle = getIntent().getExtras();
-                String trEmail = bundle.getString("EMAIL", "-");
-                Intent intent = new Intent(this, UpdateUserProfileActivity.class);
-                bundle.putString("EMAIL", trEmail);
-                Log.d(TAG, "NavBar Email : " + trEmail);
-                intent.putExtras(bundle);
-                startActivity(intent);
+                startActivity(new Intent (this, UpdateUserProfileActivity.class));
                 break;
             case R.id.nav_mypet:
                 startActivity(new Intent (this, PetListActivity.class));

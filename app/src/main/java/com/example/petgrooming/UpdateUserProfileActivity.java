@@ -23,9 +23,6 @@ public class UpdateUserProfileActivity extends AppCompatActivity {
     ActivityUpdateUserProfileBinding binding;
     DatabaseHelper db;
     Cursor cursor;
-    ImageView imgViewUpdate;
-    HashMap<String, String> sendUserInfoToCheckOutActivity;
-    String trEmail;
 
     final String TAG = "PawPaw";
 
@@ -37,15 +34,11 @@ public class UpdateUserProfileActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         Log.d(TAG, "Starting pawpaw User Profile Update page ...");
 
-        //Set up my database connection
+        //Setup database
         db = new DatabaseHelper(this);
 
-        Bundle bundle = getIntent().getExtras();
-        trEmail = bundle.getString("EMAIL", "-");
-        Log.d(TAG, "Update Profile Email : " + trEmail);
-
-        //Display Data
-        cursor = db.readUserData(trEmail);
+        //Display UserAccount
+        cursor = db.readUserData();
         if (cursor.moveToFirst()) {
             do {
                 String fname = cursor.getString(cursor.getColumnIndexOrThrow("fname"));
@@ -57,19 +50,22 @@ public class UpdateUserProfileActivity extends AppCompatActivity {
                 binding.txtViewEmail.setText(email);
             } while (cursor.moveToNext());
         }
+        cursor.close();
 
-        //Update Data
+        //Update UserAccount
         binding.btnUpdateUser.setOnClickListener((View view) -> {
             String ffname = binding.editTextFname.getText().toString();
             String llname = binding.editTextLname.getText().toString();
-            String eemail = binding.txtViewEmail.getText().toString();
+            String eemail = binding.txtViewEmail.getText().toString();;
             db.updateUserData(eemail, ffname, llname);
             Intent intent = new Intent(this, HomeScreenMainActivity.class);
             startActivity(intent);
         });
 
+        //Delete UserAccount
         binding.btnDeleteUser.setOnClickListener((View view) -> {
-            db.deleteOneRow(trEmail);
+            String eemail = binding.txtViewEmail.getText().toString();;
+            db.deleteOneRow(eemail);
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         });

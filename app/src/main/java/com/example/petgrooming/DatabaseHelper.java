@@ -77,22 +77,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-   public Cursor readUserData(String trEmail) {
+   public Cursor readUserData() {
        SQLiteDatabase db = this.getReadableDatabase();
-       String query = "SELECT * FROM allusers WHERE email = ?";
-       Cursor cursor = db.rawQuery(query, new String[]{trEmail});
-//       To Test if data is populating ------------------------------------------------
-//       if(cursor.moveToFirst()) {
-//           do {
-//               String fname = cursor.getString(cursor.getColumnIndexOrThrow("fname"));
-//               String lname = cursor.getString(cursor.getColumnIndexOrThrow("lname"));
-//               String email = cursor.getString(cursor.getColumnIndexOrThrow("email"));
-//
-//               Log.d(TAG, "First Name: " + fname);
-//               Log.d(TAG, "Last Name: " + lname);
-//               Log.d(TAG, "Email: " + email);
-//           } while (cursor.moveToNext());
-//       }
+       String query = "SELECT * FROM allusers";
+       Cursor cursor = db.rawQuery(query, null);
+       //To Test if data is populating-----------------
+       if(cursor.moveToFirst()) {
+           do {
+               String fname = cursor.getString(cursor.getColumnIndexOrThrow("fname"));
+               String lname = cursor.getString(cursor.getColumnIndexOrThrow("lname"));
+               String email = cursor.getString(cursor.getColumnIndexOrThrow("email"));
+
+               Log.d(TAG, "First Name: " + fname);
+               Log.d(TAG, "Last Name: " + lname);
+               Log.d(TAG, "Email: " + email);
+           } while (cursor.moveToNext());
+       }
+       //-----------------------------------------------
        return cursor;
    }
 
@@ -109,7 +110,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
        }
    }
 
-   //delete
    public void deleteOneRow(String email) {
        SQLiteDatabase MyDatabase = this.getWritableDatabase();
        long result = MyDatabase.delete("allusers", "email = ?", new String[]{email});

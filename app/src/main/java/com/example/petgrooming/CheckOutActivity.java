@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -50,6 +51,9 @@ public class CheckOutActivity extends NavigationBar {
 
     TextView petInfo, apptDate, selectedPackage, totalPrice, paymentStatus;
     HashMap<String, String> bookingInfo;
+
+    DatabaseHelper db = new DatabaseHelper(this);
+    Cursor cursor;
 
     int pageHeight = 1120;
     int pagewidth = 792;
@@ -314,6 +318,22 @@ public class CheckOutActivity extends NavigationBar {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
+
+                //Fetching User name and email from signup.db allusers table
+//                cursor = db.readUserData();
+//                if (cursor.moveToFirst()) {
+//                    do {
+//                        String fname = cursor.getString(cursor.getColumnIndexOrThrow("fname"));
+//                        String lname = cursor.getString(cursor.getColumnIndexOrThrow("lname"));
+//                        String email = cursor.getString(cursor.getColumnIndexOrThrow("email"));
+//                        String fullname = fname + " " + lname;
+//
+//                        params.put("name", fullname);
+//                        params.put("email", email);
+//                    } while (cursor.moveToNext());
+//                }
+//                cursor.close();
+
                 params.put("name", "paw user"); // This is hardcoded for the time being
                 params.put("email", "test@pawpaw.com"); // This is hardcoded for the time being
                 return params;

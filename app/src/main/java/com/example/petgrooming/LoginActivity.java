@@ -57,13 +57,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(checkCredentials == true) {
                     Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show();
-//                    Intent intent = new Intent(this, HomeScreenMainActivity.class);
-//                    startActivity(intent);
                     Intent intent = new Intent(this, HomeScreenMainActivity.class);
-                    Bundle bundle= new Bundle();
-                    bundle.putString("EMAIL", email);
-                    Log.d(TAG, "Login Page Email : " + bundle);
-                    intent.putExtras(bundle);
                     startActivity(intent);
                 } else {
                     Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
