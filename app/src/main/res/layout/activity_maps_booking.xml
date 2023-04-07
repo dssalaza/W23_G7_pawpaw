@@ -21,8 +21,8 @@
         android:backgroundTint="@color/brown"
         android:layout_marginLeft="135dp"
         android:layout_marginBottom="5dp"
-
         android:text="Confirm Location"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        />
 
 </RelativeLayout>

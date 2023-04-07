@@ -77,10 +77,26 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
             age = pet_age_input.getText().toString();
             condition = pet_condition_input.getText().toString();
             firebasePhotoId = pet_firebase_photoid.getText().toString();
-            myDB.updateData(id, name, type, breed, age, size, condition,firebasePhotoId);
-            Intent intent = new Intent(UpdatePetInfoActivity.this,
-                    HomeScreenMainActivity.class);
-            startActivity(intent);
+
+            if (name.length() > 0 &&
+                    type.length() > 0 &&
+                    breed.length() > 0 &&
+                    age.length() > 0 &&
+                    size.length() > 0 &&
+                    condition.length() > 0)
+            {
+                myDB.updateData(id, name, type, breed, age, size, condition,firebasePhotoId);
+                Intent intent = new Intent(UpdatePetInfoActivity.this,
+                        HomeScreenMainActivity.class);
+                startActivity(intent);
+
+            }
+            else
+            {
+                Toast.makeText(this,"Please enter all fields before proceeding further",Toast.LENGTH_SHORT).show();
+            }
+
+
 
         });
 
@@ -93,11 +109,32 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
         });
 
         book_button.setOnClickListener((View v) -> {
+            name = pet_name_input.getText().toString();
+            type = pet_animal_type_input.getText().toString();
+            breed = pet_breed_input.getText().toString();
+            size = pet_size_input.getText().toString();
+            age = pet_age_input.getText().toString();
+            condition = pet_condition_input.getText().toString();
 
-            Intent intent = new Intent(this,
-                    MapsActivityBooking.class);
-            intent.putExtra("sendInfoToMapsActivityHM", sendInfoToMapsActivity);
-            startActivity(intent);
+            if (name.length() > 0 &&
+                    type.length() > 0 &&
+                    breed.length() > 0 &&
+                    age.length() > 0 &&
+                    size.length() > 0 &&
+                    condition.length() > 0)
+            {
+                Intent intent = new Intent(this,
+                        MapsActivityBooking.class);
+                intent.putExtra("sendInfoToMapsActivityHM", sendInfoToMapsActivity);
+                startActivity(intent);
+
+            }
+            else
+            {
+                Toast.makeText(this,"Please enter all fields before proceeding further",Toast.LENGTH_SHORT).show();
+            }
+
+
         });
 
     }
