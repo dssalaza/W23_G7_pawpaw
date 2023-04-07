@@ -44,7 +44,7 @@ public class CheckOutActivity extends NavigationBar {
 
     Button btnDownloadPDF;
 
-    TextView petInfo, apptDate, selectedPackage, totalPrice, paymentStatus;
+    TextView addressInfo, apptDate, selectedPackage, totalPrice, paymentStatus;
     HashMap<String, String> bookingInfo;
 
     DatabaseHelper db = new DatabaseHelper(this);
@@ -67,7 +67,7 @@ public class CheckOutActivity extends NavigationBar {
 
     String customerIDStripe;
 
-    String totalPriceText,petInfoText;
+    String totalPriceText,addressInfoText;
 
     String clientSecret;
 
@@ -81,7 +81,7 @@ public class CheckOutActivity extends NavigationBar {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bookingInfo = (HashMap<String, String>)getIntent().getSerializableExtra("sendInfoToCheckout");
-        petInfo = findViewById(R.id.petInfoInput);
+        addressInfo = findViewById(R.id.addressInfo);
         apptDate = findViewById(R.id.apptDateInput);
         selectedPackage = findViewById(R.id.packageSelected);
         totalPrice = findViewById(R.id.totalPrice);
@@ -91,12 +91,11 @@ public class CheckOutActivity extends NavigationBar {
         {
             Log.d("values",bookingInfo.get(i));
         }
-        petInfoText = bookingInfo.get("name") + ", "
-                + bookingInfo.get("breed") + " "+ bookingInfo.get("type")
-                + "\nSize: " + bookingInfo.get("size") +"\n"
-                + "Age: " + bookingInfo.get("age")
-                ;
-        petInfo.setText(petInfoText);
+        addressInfoText = bookingInfo.get("address 1");
+        if(!bookingInfo.get("country").equals("Australia"))
+        {
+            addressInfo.setText(addressInfoText);
+        }
         apptDate.setText(bookingInfo.get("selectedDate"));
         selectedPackage.setText(bookingInfo.get("PackageInfo"));
 

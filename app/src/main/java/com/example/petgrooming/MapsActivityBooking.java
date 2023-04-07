@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentActivity;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,7 +29,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.petgrooming.databinding.ActivityMapsBookingBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
 
 public class MapsActivityBooking extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapClickListener {
 
@@ -54,9 +60,24 @@ public class MapsActivityBooking extends FragmentActivity implements OnMapReadyC
 
         checkOutFromMaps = findViewById(R.id.checkOutFromMaps);
         checkOutFromMaps.setOnClickListener((View v) -> {
+            List<Address> addresses = new ArrayList<>();
+
+            Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+            try {
+                addresses = geocoder.getFromLocation(wayLatitude, wayLongitude, 1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
             HashMap<String, String> sendInfoToBookAppt;
             sendInfoToBookAppt = (HashMap<String, String>) getIntent().getSerializableExtra("sendInfoToMapsActivityHM");
-                Intent intent = new Intent(this,
+
+            sendInfoToBookAppt.put("address 1", addresses.get(0).getAddressLine(0));
+            sendInfoToBookAppt.put("country", addresses.get(0).getCountryName());
+
+
+            Intent intent = new Intent(this,
                         BookAppointmentActivity.class);
                 intent.putExtra("LatitudeFromMap", String.valueOf(wayLatitude));
                 intent.putExtra("LongitudeFromMap", String.valueOf(wayLongitude));
@@ -89,22 +110,15 @@ public class MapsActivityBooking extends FragmentActivity implements OnMapReadyC
                    wayLatitude = location.getLatitude();
                    wayLongitude = location.getLongitude();
                }
-
             });
-
         } else {
             Toast.makeText(this, "Please allow location access to get current location", Toast.LENGTH_LONG).show();
             ActivityCompat.requestPermissions(this, new String[] {
                             Manifest.permission.ACCESS_FINE_LOCATION,
                             Manifest.permission.ACCESS_COARSE_LOCATION },
                     LOCATION_PERMISSION_CODE);
-
         }
-
-
     }
-
-
 
     private boolean isLocationPermissionGranted()
     {
