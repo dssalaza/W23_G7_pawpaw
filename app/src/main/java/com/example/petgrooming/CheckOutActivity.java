@@ -2,12 +2,8 @@ package com.example.petgrooming;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -16,7 +12,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -320,22 +315,20 @@ public class CheckOutActivity extends NavigationBar {
                 Map<String, String> params = new HashMap<>();
 
                 //Fetching User name and email from signup.db allusers table
-//                cursor = db.readUserData();
-//                if (cursor.moveToFirst()) {
-//                    do {
-//                        String fname = cursor.getString(cursor.getColumnIndexOrThrow("fname"));
-//                        String lname = cursor.getString(cursor.getColumnIndexOrThrow("lname"));
-//                        String email = cursor.getString(cursor.getColumnIndexOrThrow("email"));
-//                        String fullname = fname + " " + lname;
-//
-//                        params.put("name", fullname);
-//                        params.put("email", email);
-//                    } while (cursor.moveToNext());
-//                }
-//                cursor.close();
+                cursor = db.readUserData();
+                if (cursor.moveToFirst()) {
+                    do {
+                        String fname = cursor.getString(cursor.getColumnIndexOrThrow("fname"));
+                        String lname = cursor.getString(cursor.getColumnIndexOrThrow("lname"));
+                        String email = cursor.getString(cursor.getColumnIndexOrThrow("email"));
+                        String fullname = fname + " " + lname;
 
-                params.put("name", "paw user"); // This is hardcoded for the time being
-                params.put("email", "test@pawpaw.com"); // This is hardcoded for the time being
+                        params.put("name", fullname);
+                        params.put("email", email);
+                    } while (cursor.moveToNext());
+                }
+                cursor.close();
+
                 return params;
             }
         };
