@@ -3,7 +3,9 @@ package com.example.petgrooming;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -44,6 +46,10 @@ public class UpdatePetInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_pet_info);
+        ActivityCompat.requestPermissions(this, new String[] {
+                        android.Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION },
+                101);
         imgViewUpdate = findViewById(R.id.imgViewUpdate);
         pet_name_input = findViewById(R.id.pet_name_update);
         pet_animal_type_input = findViewById(R.id.pet_animal_type_update);

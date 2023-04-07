@@ -93,7 +93,7 @@ public class MapsActivityBooking extends FragmentActivity implements OnMapReadyC
             });
 
         } else {
-            Toast.makeText(this, "Error", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please allow location access to get current location", Toast.LENGTH_LONG).show();
             ActivityCompat.requestPermissions(this, new String[] {
                             Manifest.permission.ACCESS_FINE_LOCATION,
                             Manifest.permission.ACCESS_COARSE_LOCATION },
