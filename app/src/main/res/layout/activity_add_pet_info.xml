@@ -139,4 +139,6 @@
             android:text="Cat" />
     </RadioGroup>
 
+    <include layout="@layout/navigation_bar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
