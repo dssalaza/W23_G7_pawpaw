@@ -37,6 +37,7 @@ public class HomeScreenMainActivity extends NavigationBar implements NavigationV
     NavigationView navigationView;
     ImageView navProfileImgView; //Image view inside the drawerLayout
     Toolbar toolbar;
+//    DatabaseHelper databaseHelper;
 
     TextView userName;
 
@@ -83,24 +84,7 @@ public class HomeScreenMainActivity extends NavigationBar implements NavigationV
         View headerLayout = navigationView.getHeaderView(0);
         navProfileImgView = headerLayout.findViewById(R.id.navProfileImgView);
 
-        //login Information to be displayed--------------------------------
-        userName = findViewById(R.id.txtViewUserName);
-
-        GoogleSignInAccount gAccount = GoogleSignIn.getLastSignedInAccount(this);
-        if (gAccount != null) {
-//            String gName = gAccount.getDisplayName();
-            String gEmail = gAccount.getEmail();
-            userName.setText(gEmail);
-        } else {
-            Bundle bundle = getIntent().getExtras();
-            String trEmail = bundle.getString("EMAIL", "-");
-            if (trEmail != null) {
-                userName.setText(trEmail);
-            }
-        }
-
-
-
+        //Layout
         cardViewBookAppt = findViewById(R.id.cardViewBook);
         cardViewBookAppt.setOnClickListener((View v) -> {
             //startActivity(new Intent(this, MapsActivityBooking.class));
@@ -128,7 +112,6 @@ public class HomeScreenMainActivity extends NavigationBar implements NavigationV
                 chooseProfilePicture();
             }
         });
-
     }
 
     @Override
@@ -165,7 +148,6 @@ public class HomeScreenMainActivity extends NavigationBar implements NavigationV
     }
 
     private void uploadPicture(){
-
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setTitle("Uploading Image...");
         pd.show();
@@ -194,6 +176,5 @@ public class HomeScreenMainActivity extends NavigationBar implements NavigationV
                 pd.setMessage("Percentage: " + (int) progressPercent + "%");
             }
         });
-
     }
 }

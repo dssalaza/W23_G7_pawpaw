@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "177240568871",
+    "project_id": "pawpaw-ecfe7",
+    "storage_bucket": "pawpaw-ecfe7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177240568871:android:97c37203e8d0124b2d0a02",
+        "android_client_info": {
+          "package_name": "com.example.petgrooming"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177240568871-2mrccrg2o5dn7n1q8fe5e6sbcilsvela.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUepXfrttnL56A7KIsbMgVZD9z8b1Lqdg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177240568871-2mrccrg2o5dn7n1q8fe5e6sbcilsvela.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

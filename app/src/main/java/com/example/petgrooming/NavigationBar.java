@@ -2,6 +2,7 @@ package com.example.petgrooming;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +29,8 @@ public abstract class NavigationBar extends AppCompatActivity implements Navigat
     GoogleSignInClient gClient;
     GoogleSignInOptions gOptions;
 
+    final String TAG = "PawPaw";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,17 +41,6 @@ public abstract class NavigationBar extends AppCompatActivity implements Navigat
 
         gOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gClient = GoogleSignIn.getClient(this, gOptions);
-
-//        userNameNav = findViewById(R.id.navUserName);
-//        emailNav = findViewById(R.id.navEmail);
-//
-//        GoogleSignInAccount gAccount = GoogleSignIn.getLastSignedInAccount(this);
-//        if (gAccount != null) {
-//            String gName = gAccount.getDisplayName();
-//            String gEmail = gAccount.getEmail();
-//            userNameNav.setText(gName);
-//            emailNav.setText(gEmail);
-//        }
 
     }
 
@@ -80,10 +72,19 @@ public abstract class NavigationBar extends AppCompatActivity implements Navigat
                 break;
             //Left drawer options
             case R.id.nav_home:
+                startActivity(new Intent(this, HomeScreenMainActivity.class));
+                break;
+            case R.id.nav_myProfile:
+                Bundle bundle = getIntent().getExtras();
+                String trEmail = bundle.getString("EMAIL", "-");
+                Intent intent = new Intent(this, UpdateUserProfileActivity.class);
+                bundle.putString("EMAIL", trEmail);
+                Log.d(TAG, "NavBar Email : " + trEmail);
+                intent.putExtras(bundle);
+                startActivity(intent);
                 break;
             case R.id.nav_mypet:
-                Intent intent = new Intent (this, PetListActivity.class);
-                startActivity(intent);
+                startActivity(new Intent (this, PetListActivity.class));
                 break;
             case R.id.nav_settings:
                 break;

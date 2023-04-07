@@ -57,13 +57,14 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(checkCredentials == true) {
                     Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show();
+//                    Intent intent = new Intent(this, HomeScreenMainActivity.class);
+//                    startActivity(intent);
                     Intent intent = new Intent(this, HomeScreenMainActivity.class);
-                    startActivity(intent);
-                    Intent myResult = new Intent(this, HomeScreenMainActivity.class);
                     Bundle bundle= new Bundle();
                     bundle.putString("EMAIL", email);
-                    myResult.putExtras(bundle);
-                    startActivity(myResult);
+                    Log.d(TAG, "Login Page Email : " + bundle);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                 }
@@ -85,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, HomeScreenMainActivity.class);
             startActivity(intent);
         }
+
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
                     @Override
@@ -103,6 +105,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
+
         googleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
