@@ -19,6 +19,7 @@ public class PetListActivity extends NavigationBar {
     FloatingActionButton add_button;
     TextView txtViewDefaultMsg;
 
+
     MyPetInfoDatabaseHelper myDB;
     ArrayList<String> pet_id, pet_name, pet_type, pet_breed, pet_condition, pet_age, pet_size, pet_firebaseid;
 
@@ -39,6 +40,7 @@ public class PetListActivity extends NavigationBar {
         recyclerView = findViewById(R.id.recyclerViewPetInfo);
         add_button = findViewById(R.id.floatingActionButtonAddPet);
         txtViewDefaultMsg = findViewById(R.id.txtViewDefaultMsg);
+
         add_button.setOnClickListener((View v) -> {
 
             Intent intent = new Intent(PetListActivity.this, AddPetInfoToDBActivity.class);
@@ -83,8 +85,7 @@ public class PetListActivity extends NavigationBar {
                 pet_condition.add(cursor.getString(6));
                 pet_firebaseid.add(cursor.getString(7));
             }
-            //empty_imageview.setVisibility(View.GONE);
-            //no_data.setVisibility(View.GONE);
+
         }
     }
 

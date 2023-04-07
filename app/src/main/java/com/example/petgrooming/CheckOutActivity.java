@@ -111,10 +111,6 @@ public class CheckOutActivity extends NavigationBar {
         }
 
         getStripeCustomerID();
-
-
-        //custom - Sri: Start
-
         btnDownloadPDF = findViewById(R.id.btnDownloadPdf);
         bmp = BitmapFactory.decodeResource(getResources(), R.drawable.paw);
         scaledbmp = Bitmap.createScaledBitmap(bmp, 140, 140, false);
@@ -129,16 +125,6 @@ public class CheckOutActivity extends NavigationBar {
             }
         });
         paymentSheet = new PaymentSheet(this, this::onPaymentSheetResult);
-
-       /* if ((ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
-                PackageManager.PERMISSION_GRANTED)&& (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) ==
-                PackageManager.PERMISSION_GRANTED)) {
-            Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
-        } else {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
-        }*/
-
         btnDownloadPDF.setOnClickListener((View v) -> {
                 generatePDF();
         });
@@ -207,25 +193,23 @@ public class CheckOutActivity extends NavigationBar {
         title.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
         title.setColor(ContextCompat.getColor(this, R.color.black));
         title.setTextSize(30);
-        int x = 209;
+        int x = 170;
         int y = 260;
 
         //title.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText("Order Number: ", 209, y, title);
+        canvas.drawText("Appointment Date: "+bookingInfo.get("selectedDate"), x, y, title);
         y += 60;
-        canvas.drawText("Pet Name: "+bookingInfo.get("name"), 209, y, title);
+        canvas.drawText("Name of your pet: "+bookingInfo.get("name"), x, y, title);
         y += 60;
-        canvas.drawText("Pet Breed: "+bookingInfo.get("breed"), 209, y, title);
+        canvas.drawText("Breed of your pet: "+bookingInfo.get("breed"), x, y, title);
         y += 60;
-        canvas.drawText("Pet Type: "+bookingInfo.get("type"), 209, y, title);
+        canvas.drawText("Size of your pet(in ft.): "+bookingInfo.get("size"), x, y, title);
         y += 60;
-        canvas.drawText("Pet Size: "+bookingInfo.get("size"), 209, y, title);
+        canvas.drawText("Age of your pet(in years): "+bookingInfo.get("age"), x, y, title);
         y += 60;
-        canvas.drawText("Pet Age: "+bookingInfo.get("age"), 209, y, title);
+        canvas.drawText("Package Selected: "+bookingInfo.get("PackageInfo"), x, y, title);
         y += 60;
-        canvas.drawText("Package: "+bookingInfo.get("PackageInfo"), 209, y, title);
-        y += 60;
-        canvas.drawText("Total Cost: "+totalPriceText, 209, y, title);
+        canvas.drawText("Total Cost: $"+totalPriceText, x, y, title);
 
         pdfDocument.finishPage(myPage);
 
@@ -248,17 +232,7 @@ public class CheckOutActivity extends NavigationBar {
         }
         pdfDocument.close();
     }
-/*
-    private boolean checkPermission() {
-        int permission1 = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        int permission2 = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE);
-        return permission1 == PackageManager.PERMISSION_GRANTED && permission2 == PackageManager.PERMISSION_GRANTED;
-    }
 
-    private void requestPermission() {
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
-    }*/
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -278,7 +252,7 @@ public class CheckOutActivity extends NavigationBar {
             }
         }
     }
-    // custom:Sri - End
+
 
     private void getStripeCustomerID(){
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
