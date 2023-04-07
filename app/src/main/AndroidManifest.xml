@@ -37,6 +37,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".UpdateUserProfileActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AddPetInfoToDBActivity"
             android:exported="false">
             <meta-data
