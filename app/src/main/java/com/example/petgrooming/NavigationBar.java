@@ -80,8 +80,6 @@ public abstract class NavigationBar extends AppCompatActivity implements Navigat
             case R.id.nav_mypet:
                 startActivity(new Intent (this, PetListActivity.class));
                 break;
-            case R.id.nav_settings:
-                break;
             case R.id.nav_logout:
                 Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
                 gClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {

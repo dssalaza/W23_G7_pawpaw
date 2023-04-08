@@ -22,11 +22,11 @@
         android:id="@+id/btnDownloadPdf"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="120dp"
+        android:backgroundTint="@color/brown"
         android:text="@string/stringBtnDownloadPdf"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:backgroundTint="@color/brown"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -34,15 +34,15 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="30dp"
         android:text="Order Summary"
+        android:textAlignment="center"
+        android:textColor="@color/brown"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        android:textAlignment="center"
-        android:textColor="@color/brown"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
@@ -105,7 +105,7 @@
         android:id="@+id/imageView"
         android:layout_width="204dp"
         android:layout_height="67dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"

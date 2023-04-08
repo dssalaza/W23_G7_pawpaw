@@ -56,18 +56,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-            <TextView
-                android:id="@+id/txtViewUserName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/bellota_text_bold"
-                android:textColor="@color/brown"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toStartOf="@+id/imgViewFavHooman"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtViewWelcome" />
+<!--            <TextView-->
+<!--                android:id="@+id/txtViewUserName"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:fontFamily="@font/bellota_text_bold"-->
+<!--                android:textColor="@color/brown"-->
+<!--                android:textSize="20sp"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/imgViewFavHooman"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/txtViewWelcome" />-->
 
             <ImageView
                 android:id="@+id/imgViewFavHooman"
@@ -85,6 +85,7 @@
                 android:id="@+id/row1"
                 android:layout_width="0dp"
                 android:layout_height="175dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -129,42 +130,42 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardViewHistory"
-                    android:layout_width="6dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="20dp">
+                <!--                <androidx.cardview.widget.CardView-->
+                <!--                    android:id="@+id/cardViewHistory"-->
+                <!--                    android:layout_width="6dp"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:layout_margin="10dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    app:cardCornerRadius="20dp"-->
+                <!--                    app:cardElevation="20dp">-->
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                <!--                    <RelativeLayout-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="match_parent">-->
 
-                        <TextView
-                            android:id="@+id/txtViewHistory"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/imgViewHistory"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="10dp"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:text="History"
-                            android:textColor="@color/brown"
-                            android:textSize="18sp" />
+                <!--                        <TextView-->
+                <!--                            android:id="@+id/txtViewHistory"-->
+                <!--                            android:layout_width="wrap_content"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:layout_below="@+id/imgViewHistory"-->
+                <!--                            android:layout_centerHorizontal="true"-->
+                <!--                            android:layout_marginTop="10dp"-->
+                <!--                            android:fontFamily="@font/poppins_semibold"-->
+                <!--                            android:text="History"-->
+                <!--                            android:textColor="@color/brown"-->
+                <!--                            android:textSize="18sp" />-->
 
-                        <ImageView
-                            android:id="@+id/imgViewHistory"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="15dp"
-                            android:src="@drawable/baseline_history_24" />
+                <!--                        <ImageView-->
+                <!--                            android:id="@+id/imgViewHistory"-->
+                <!--                            android:layout_width="70dp"-->
+                <!--                            android:layout_height="70dp"-->
+                <!--                            android:layout_centerHorizontal="true"-->
+                <!--                            android:layout_marginTop="15dp"-->
+                <!--                            android:src="@drawable/baseline_history_24" />-->
 
-                    </RelativeLayout>
+                <!--                    </RelativeLayout>-->
 
-                </androidx.cardview.widget.CardView>
+                <!--                </androidx.cardview.widget.CardView>-->
 
             </LinearLayout>
 
