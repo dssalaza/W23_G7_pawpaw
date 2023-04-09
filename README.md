@@ -2,7 +2,7 @@
 An Android mobile booking application that connects busy pet owners with mobile pet grooming professionals. 
 
 ## Getting Started
-PawPaw essentially adopts SQLite for CRUD operations throughout the application. In addtion, PawPaw integrates with third parties such as [GoogleAPI](https://developers.google.com/identity/sign-in/android/start-integrating) [firebase](https://firebase.google.com/) and [Stripe](https://stripe.com/en-ca). In order to run the project properly you'll need to follow the next steps:
+PawPaw essentially adopts SQLite for CRUD operations throughout the application. In addtion, PawPaw integrates with third parties such as [GoogleAPI](https://developers.google.com/identity/sign-in/android/start-integrating), [firebase](https://firebase.google.com/) and [Stripe](https://stripe.com/en-ca). In order to run the project properly you'll need to follow the next steps:
 
 ### Prerequisites
 
@@ -25,7 +25,8 @@ app/Gradle Scripts/build.gradle file, declar Google Play services as a dependenc
 implementation 'com.github.TutorialsAndroid:GButton:v1.0.19' 
 implementation 'com.google.android.gms:play-services-auth:20.4.0'  
 ```
-To configure a Google API Console project, we need Package name and SHA-1 from gradle and create.
+To configure a Google API Console project, we need Package name and SHA-1 from gradle and Create.
+
 
 PawPaw communicates with firebase, therefore it needs a `google-services.json` file. For security reasons this file is not versioned so please ask for this file to the contributors of the project and place it in the `app/` directory of the project.
 ```
