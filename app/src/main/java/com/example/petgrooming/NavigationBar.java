@@ -39,7 +39,8 @@ public abstract class NavigationBar extends AppCompatActivity implements Navigat
         navigationView = findViewById(R.id.bottonnav);
         navigationView.setOnItemSelectedListener(this);
 
-        gOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail().build();
         gClient = GoogleSignIn.getClient(this, gOptions);
 
     }
@@ -93,16 +94,6 @@ public abstract class NavigationBar extends AppCompatActivity implements Navigat
         }
         return true;
     }
-
-//    private void updateNavigationBarState(){
-//        int actionId = getNavigationMenuItemId();
-//        selectBottomNavigationBarItem(actionId);
-//    }
-//
-//    void selectBottomNavigationBarItem(int itemId) {
-//        MenuItem item = navigationView.getMenu().findItem(itemId);
-//        item.setChecked(true);
-//    }
 
     abstract int getContentViewId();
 

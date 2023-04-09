@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import com.example.petgrooming.databinding.ActivitySignupBinding;
 
-//Seulah 03/13/2023 - Signup
 public class SignupActivity extends AppCompatActivity {
 
     ActivitySignupBinding binding;
