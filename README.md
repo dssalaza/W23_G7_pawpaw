@@ -8,7 +8,8 @@ PawPaw essentially adopts SQLite for CRUD operations throughout the application.
 
 First, in order to use Google Sign in (3rd Party), we have to install and run a emulator/AVD (Android Virtual Device) with Google Play that includes Google Play services and the Google Play Store such as Pixel 4 or 6.
 
-To adopt google sign in button and the service, we have ensure Google's Maven repository is included:
+To adopt google sign in button and the service, we have to ensure
+1. Google's Maven repository is included:
 app/Gradle Scripts/settings.gradle/
 ```
 dependencyResolutionManagement {
@@ -20,10 +21,14 @@ dependencyResolutionManagement {
     }
 } 
 ```
-app/Gradle Scripts/build.gradle file, declar Google Play services as a dependency:
+2. declare Google Play services as a dependency:
+app/Gradle Scripts/build.gradle 
 ```
-implementation 'com.github.TutorialsAndroid:GButton:v1.0.19' 
-implementation 'com.google.android.gms:play-services-auth:20.4.0'  
+  dependencies {
+        implementation 'com.github.TutorialsAndroid:GButton:v1.0.19' 
+        implementation 'com.google.android.gms:play-services-auth:20.4.0'
+    }
+  
 ```
 To configure a Google API Console project, we need Package name and SHA-1 from gradle and Create.
 
