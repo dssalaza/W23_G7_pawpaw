@@ -30,7 +30,10 @@ app/Gradle Scripts/build.gradle
     }
   
 ```
-To configure a Google API Console project, we need Package name and SHA-1 from gradle and Create.
+Then, create an API console project that requires the app's package name (can find from build.gradle) and SHA-1 certificate (can attain by running gradle signingReport). Once done creating, able to download client configuration that contains Client ID and Client Secret - 'credentials.json'. For security reason, please ask for this file to the contributors of the project and place it in the 'app/' directory of the project.   
+```
+app/credentials.json
+```
 
 
 PawPaw communicates with firebase, therefore it needs a `google-services.json` file. For security reasons this file is not versioned so please ask for this file to the contributors of the project and place it in the `app/` directory of the project.
